@@ -1,2 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh">
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
 
-http
+    .sidebar {
+        width: 20%;
+        height: 100vh; 
+        position: fixed; 
+        top: 0;
+        left: 0;
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-right: 2px solid #ccc;
+    }
+
+    .content {
+        margin-left: 22%; /* 让正文稍微偏右 */
+        width: 75%;
+        padding: 20px;
+        overflow-y: auto; /* 允许滚动 */
+        height: 100vh;
+    }
+
+    .unit{
+        margin:  25px 0px 25px 25px;
+    }
+
+    p {
+        text-indent: 2em; /* 让段落开头缩进 2 个字符宽度 */
+        margin-top: 0px;  /* 减小段落顶部间距 */
+        margin-bottom: 0px; /* 减小段落底部间距 */
+    }
+    h2 {
+        margin-top: 0px;  /* 减小段落顶部间距 */
+        margin-bottom: 0px; /* 减小段落底部间距 */
+    }
+    h3 {
+        margin-top: 0px;  /* 减小段落顶部间距 */
+        margin-bottom: 0px; /* 减小段落底部间距 */
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老狗的RS2文档</title>
+</head>
+<body>
+    <div class="sidebar">目录内容</div>
+    <div class="content">
+        <div class="unit">
+            <h1>全部翻译及注释</h1>
+            <p>在vizzy中可以被执行的程序和数据被称为模块，可以拖动某些，模块使其从上到下排列，系统会根据排列顺序以一定速度依次对模块做出相应的反馈，并进入下一个模块直到结束，以此来完成用户所编辑的vizzy程序</p>
+            <div class="unit">
+                <h2>一：program flow（程序流程）</h2>
+                <p>此目录下的程序可以连接原本独立的程序片段而形成一个连续完整的程序、，更好的使用能帮你完成更大更复杂的程序组。</p>
+                <div class="unit">
+                    <h3>1：wait（）seconds  （等待（）秒）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45">
+                            <polygon points="0,0 5,0 13,5 21,0 180,0 180,40 21,40 13,45 5,40 0,40" fill="#404040"/>
+                            <text x="10" y="27" fill="white" font-size="18">wait</text>
+                            <text x="100" y="27" fill="white" font-size="18">seconds</text>
+                            <rect x="54" y="6" width="40" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                            <text x="68" y="27" fill="white" font-size="18">1</text>
+                        </svg>                    
+                        <p>等待一秒并非现实世界的一秒，这存在一点误差，受是设备刷新帧率影响而产生的，并不大但不可忽视，在时空扭矩中会发生极大错误</p>
+                    </div>
+                </div>
+                <div class="unit">
+                    <h3>2：wait until〈〉 （等待直到〈〉）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45">
+                        <polygon points="0,0 5,0 13,5 21,0 140,0 140,40 21,40 13,45 5,40 0,40" fill="#404040"/>
+                        <text x="10" y="27" fill="white" font-size="18">wait until</text>
+                        <polygon points="110,6 114,6 126,18 126,22 114,34 110,34 98,22 98,18" fill="#303030" stroke-width="2" stroke="#202020"/>
+                        </svg>      
+                        <p>等待直到菱形方框内执行或达成则开始运下一行程序例：wait until 〈AGL≦5000〉意思就是等待直到距地面高度小于5000m运行下一步注：如果未达成wait until〈〉里面的条件后面的程序是无法执行的，即使后面的判定是达成的</p>
+                    </div>
+                </div>
+                <div class="unit">
+                    <h3>3：repeat（） （重复（）次）</h3>
+                    <p>可以在（）里填入需要重复的次数，此程序所包含的程序将会运行（）次，重复完成后会自动跳出循环</p>
+                </div>
+                <div class="unit">
+                    <h3>4：while〈〉   在〈〉期间</h3>
+                    <p>当〈〉为真命题时无限循环运行所包含的程序，直到〈〉内不再为真命题才会跳出，如〈〉为否命题则直接跳过此程序和所有包含的子程序直接运行下面的程序</p>
+                </div>
+                <div class="unit">
+                    <h3>5：for（i）from（A）to（B）dy（C） （通过（C）从（A）设置（i）到（B））</h3>
+                    <p>此程序将通过by后面的数字或公式运算来（i），每一次运算会附带此模块包涵的模块依次执行，包涵的模块依次运行完成以后进行下一次运算，直到（i）等于或超过to后面的数，多次重复计算，完成后会自动跳出循环执行以下的模块。（i）不会超过to后面的数，即使最后一次计算会超出to后面的数，（i）的度数只会停留在to</p>
+                    <p>注:数值不能存在明显错误，如图（i）的初始值为1通过-1永远无法达到10，程序不会无限循环，而是出现错误停滞</p>
+                </div>
+                <div class="unit">
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
