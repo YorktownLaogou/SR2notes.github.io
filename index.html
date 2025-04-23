@@ -22,14 +22,27 @@
         margin-left: 22%; /* 让正文稍微偏右 */
         width: 75%;
         padding: 20px;
-        overflow-y: auto; /* 允许滚动 */
-        height: 100vh;
+    }
+
+    .VizzyWigets
+    {
+        /*filter: drop-shadow(3px 3px 2px gray);*/
     }
 
     .unit{
         margin:  25px 0px 25px 25px;
     }
-
+    .chapter{
+        margin:  25px 0px 25px 25px;
+    }
+    .Section{
+        margin:  25px 0px 25px 25px;
+        border-bottom: 3px solid rgb(230, 230, 230);
+    }
+    svg {
+        margin-top: -0px; 
+        margin-bottom: -4px;
+    }
     p {
         text-indent: 2em; /* 让段落开头缩进 2 个字符宽度 */
         margin-top: 0px;  /* 减小段落顶部间距 */
@@ -55,14 +68,14 @@
         <div class="unit">
             <h1>全部翻译及注释</h1>
             <p>在vizzy中可以被执行的程序和数据被称为模块，可以拖动某些，模块使其从上到下排列，系统会根据排列顺序以一定速度依次对模块做出相应的反馈，并进入下一个模块直到结束，以此来完成用户所编辑的vizzy程序</p>
-            <div class="unit">
+            <div class="chapter">
                 <h2>一：program flow（程序流程）</h2>
                 <p>此目录下的程序可以连接原本独立的程序片段而形成一个连续完整的程序、，更好的使用能帮你完成更大更复杂的程序组。</p>
-                <div class="unit">
+                <div class="Section">
                     <h3>1：wait（）seconds  （等待（）秒）</h3>
                     <div class="unit" style="margin-top: 0; margin-bottom: 0;">
                         <svg width="100%" height="45">
-                            <polygon points="0,0 5,0 13,5 21,0 180,0 180,40 21,40 13,45 5,40 0,40" fill="#404040"/>
+                            <polygon class="VizzyWigets" points="0,0 5,0 13,5 21,0 180,0 180,40 21,40 13,45 5,40 0,40" fill="#404040" stroke-width="1" stroke="#303030"/>
                             <text x="10" y="27" fill="white" font-size="18">wait</text>
                             <text x="100" y="27" fill="white" font-size="18">seconds</text>
                             <rect x="54" y="6" width="40" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
@@ -71,33 +84,666 @@
                         <p>等待一秒并非现实世界的一秒，这存在一点误差，受是设备刷新帧率影响而产生的，并不大但不可忽视，在时空扭矩中会发生极大错误</p>
                     </div>
                 </div>
-                <div class="unit">
+                <div class="Section">
                     <h3>2：wait until〈〉 （等待直到〈〉）</h3>
                     <div class="unit" style="margin-top: 0; margin-bottom: 0;">
                         <svg width="100%" height="45">
-                        <polygon points="0,0 5,0 13,5 21,0 140,0 140,40 21,40 13,45 5,40 0,40" fill="#404040"/>
-                        <text x="10" y="27" fill="white" font-size="18">wait until</text>
-                        <polygon points="110,6 114,6 126,18 126,22 114,34 110,34 98,22 98,18" fill="#303030" stroke-width="2" stroke="#202020"/>
+                            <polygon class="VizzyWigets" points="0,0 5,0 13,5 21,0 140,0 140,40 21,40 13,45 5,40 0,40" fill="#404040" stroke-width="1" stroke="#303030"/>
+                            <text x="10" y="27" fill="white" font-size="18">wait until</text>
+                            <polygon points="110,6 114,6 126,18 126,22 114,34 110,34 98,22 98,18" fill="#303030" stroke-width="2" stroke="#202020"/>
                         </svg>      
                         <p>等待直到菱形方框内执行或达成则开始运下一行程序例：wait until 〈AGL≦5000〉意思就是等待直到距地面高度小于5000m运行下一步注：如果未达成wait until〈〉里面的条件后面的程序是无法执行的，即使后面的判定是达成的</p>
                     </div>
                 </div>
-                <div class="unit">
+                <div class="Section">
                     <h3>3：repeat（） （重复（）次）</h3>
-                    <p>可以在（）里填入需要重复的次数，此程序所包含的程序将会运行（）次，重复完成后会自动跳出循环</p>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="85" >
+                            <polygon class="VizzyWigets" points="0,0 5,0 13,5 21,0 126,0 126,40 32,40 24,45 16,40 12,40 12,68 126,68 126,80 21,80 13,85 5,80 0,80" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
+                            <text x="10" y="27" fill="white" font-size="18">repeat</text>
+                            <rect x="71" y="6" width="45" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                            <text x="83" y="27" fill="white" font-size="18">10</text>
+                        </svg>
+                        <p>可以在（）里填入需要重复的次数，此程序所包含的程序将会运行（）次，重复完成后会自动跳出循环</p>
+                    </div>
                 </div>
-                <div class="unit">
+                <div class="Section">
                     <h3>4：while〈〉   在〈〉期间</h3>
-                    <p>当〈〉为真命题时无限循环运行所包含的程序，直到〈〉内不再为真命题才会跳出，如〈〉为否命题则直接跳过此程序和所有包含的子程序直接运行下面的程序</p>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="85" >
+                            <polygon class="VizzyWigets" points="0,0 5,0 13,5 21,0 99,0 99,40 32,40 24,45 16,40 12,40 12,68 99,68 99,80 21,80 13,85 5,80 0,80" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
+                            <text x="10" y="27" fill="white" font-size="18">while</text>
+                            <polygon points="73,6 77,6 89,18 89,22 77,34 73,34 61,22 61,18" fill="#303030" stroke-width="2" stroke="#202020"/>
+                        </svg>
+                        <p>当〈〉为真命题时无限循环运行所包含的程序，直到〈〉内不再为真命题才会跳出，如〈〉为否命题则直接跳过此程序和所有包含的子程序直接运行下面的程序</p>
+                    </div>
                 </div>
-                <div class="unit">
+                <div class="Section">
                     <h3>5：for（i）from（A）to（B）dy（C） （通过（C）从（A）设置（i）到（B））</h3>
-                    <p>此程序将通过by后面的数字或公式运算来（i），每一次运算会附带此模块包涵的模块依次执行，包涵的模块依次运行完成以后进行下一次运算，直到（i）等于或超过to后面的数，多次重复计算，完成后会自动跳出循环执行以下的模块。（i）不会超过to后面的数，即使最后一次计算会超出to后面的数，（i）的度数只会停留在to</p>
-                    <p>注:数值不能存在明显错误，如图（i）的初始值为1通过-1永远无法达到10，程序不会无限循环，而是出现错误停滞</p>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="85" >
+                            <polygon class="VizzyWigets" points="0,0 5,0 13,5 21,0 328,0 328,40 32,40 24,45 16,40 12,40 12,68 328,68 328,80 21,80 13,85 5,80 0,80" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
+                            <text x="10" y="27" fill="white" font-size="18">for</text>
+                            <text x="75" y="27" fill="white" font-size="18">from</text>
+                            <text x="170" y="27" fill="white" font-size="18">to</text>
+                            <text x="249" y="27" fill="white" font-size="18">by</text>
+                            <rect x="41" y="6" width="28" height="28" rx="14" ry="14" fill="#FFB203" stroke-width="2" stroke="#BC9626"/>
+                            <text x="52" y="27" fill="white" font-size="18">i</text>
+                            <rect x="122" y="6" width="40" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                            <text x="137" y="27" fill="white" font-size="18">1</text>
+                            <rect x="197" y="6" width="43" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                            <text x="208" y="27" fill="white" font-size="18">10</text>
+                            <rect x="278" y="6" width="40" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                            <text x="292" y="27" fill="white" font-size="18">1</text>
+                        </svg>
+                        <p>此程序将通过by后面的数字或公式运算来（i），每一次运算会附带此模块包涵的模块依次执行，包涵的模块依次运行完成以后进行下一次运算，直到（i）等于或超过to后面的数，多次重复计算，完成后会自动跳出循环执行以下的模块。（i）不会超过to后面的数，即使最后一次计算会超出to后面的数，（i）的度数只会停留在to</p>
+                        <p>注:数值不能存在明显错误，如图（i）的初始值为1通过-1永远无法达到10，程序不会无限循环，而是出现错误停滞</p>
+                    </div>
                 </div>
-                <div class="unit">
-                    <p></p>
-                    <p></p>
+                <div class="Section">
+                    <h3>6：if〈〉then（如果〈〉那么）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="85" >
+                            <polygon class="VizzyWigets" points="0,0 5,0 13,5 21,0 116,0 116,40 32,40 24,45 16,40 12,40 12,68 116,68 116,80 21,80 13,85 5,80 0,80" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
+                            <text x="10" y="27" fill="white" font-size="18">if</text>
+                            <text x="65" y="27" fill="white" font-size="18">then</text>
+                            <polygon points="41,6 45,6 57,18 57,22 45,34 41,34 29,22 29,18" fill="#303030" stroke-width="2" stroke="#202020"/>
+                        </svg>
+                        <p>与while类似，只有〈〉为真命题时才运行被包涵的模块，若为假命题则直接跳过以及被包涵的模块直接运行以下的模块，和while不同的是此模块只会运行一次，判断〈〉条件达成后运行包涵的模块，完成后自动跳出循环运行以下模块，不会再次判断〈〉</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>7：else if 〈〉then （除非〈〉否则）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="85" >
+                            <polygon class="VizzyWigets" points="0,0 5,0 13,5 21,0 152,0 152,40 32,40 24,45 16,40 12,40 12,68 152,68 152,80 21,80 13,85 5,80 0,80" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
+                            <text x="10" y="27" fill="white" font-size="18">else if</text>
+                            <text x="104" y="27" fill="white" font-size="18">then</text>
+                            <polygon points="79,6 83,6 95,18 95,22 83,34 79,34 67,22 67,18" fill="#303030" stroke-width="2" stroke="#202020"/>
+                        </svg>
+                        <p>与if〈〉then性质相同且相反，当满足〈〉条件时跳过此模块，反之不满足则运行包涵的模块</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>8：slse （否则）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="85" >
+                            <polygon points="0,0 5,0 13,5 21,0 52,0 52,40 32,40 24,45 16,40 12,40 12,68 52,68 52,80 21,80 13,85 5,80 0,80" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
+                            <text x="10" y="27" fill="white" font-size="18">else</text>
+                        </svg>
+                        <p>此模块需要和if〈〉then或else if 〈〉then连用，达到和以上程序相反的效果，其他性质一致，如以上模块条件达成则自动跳过else模块。</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>9：display（）（显示）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45">
+                            <polygon points="0,0 5,0 13,5 21,0 146,0 146,40 21,40 13,45 5,40 0,40" fill="#404040" stroke-width="1" stroke="#303030"/>
+                            <text x="10" y="27" fill="white" font-size="18">display</text> 
+                            <rect x="78" y="6" width="58" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                            <text x="90" y="27" fill="white" font-size="18">text</text> 
+                        </svg>     
+                        <p>可以显示文字或者数字，圆框内可以直接填写文字，填入矢量模块会显示矢量（x,y,z），也可以填入计算公式如（1）+（1）等，如果公式有错会显示NaN意思是No a number没有这个数。</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>10：log（）（记录）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45">
+                            <polygon points="0,0 5,0 13,5 21,0 84,0 84,40 21,40 13,45 5,40 0,40" fill="#404040" stroke-width="1" stroke="#303030"/>
+                            <text x="10" y="27" fill="white" font-size="18">log</text> 
+                            <rect x="46" y="6" width="28" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                        </svg> 
+                        <p>Log和display大致相同，其不同点是log（）可以将数据记录在View Log里，方便查看某一时刻的数值，当然log（）将不再把结果显示在屏幕上了</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>11：break （打破循环）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="55">
+                            <polygon points="0,0 5,0 13,5 21,0 69,0 69,40 21,40 13,45 5,40 0,40" fill="#FFB203" stroke-width="1" stroke="#EFA203"/>
+                            <text x="10" y="27" fill="white" font-size="18">Break</text> 
+                        </svg>
+                        <p>这将会跳出这个本循环，运行外侧循环</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>12：#（） （便签）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45">
+                            <polygon points="0,0 5,0 13,5 21,0 181,0 181,40 21,40 13,45 5,40 0,40" fill="#404040" stroke-width="1" stroke="#303030"/>
+                                <text x="10" y="27" fill="white" font-size="18">#</text> 
+                            <rect x="33" y="6" width="138" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                                <text x="48" y="27" fill="white" font-size="18">Coment Text</text> 
+                        </svg>
+                        <p>这个模块不会运行，你可以把它放在任何位置用于记录某些东西，你可以在里面自由填写，或是笔记，或是批注，你可以把它当成便签一样随意贴放</p>
+                        <p>注:正版不支持中文，不支持Unicode，Jundoor懒狗</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chapter">
+                <h2>二：operators （运算符）</h2>
+                <p>这些模块包括了几乎所有的运算符号，可以进行几乎所有的物理学运算，让你可以用vizzy完成玩家几乎不可能完成的任务。在此只简单翻译计算模块，这些模块包括了高中和大学的内容，需要些数学基础</p>
+                <div class="Section">
+                    <h3>1：基础运算符号</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45">
+                            <rect x="0" y="3" width="113" height="34" rx="14" ry="14" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
+                                <rect x="10" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                                    <text x="21" y="27" fill="white" font-size="18">0</text>
+                                <text x="51" y="27" fill="white" font-size="18">+</text>
+                                <rect x="70" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/> 
+                                    <text x="81" y="27" fill="white" font-size="18">0</text>
+                            <rect x="120" y="3" width="113" height="34" rx="14" ry="14" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
+                                <rect x="130" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                                    <text x="141" y="27" fill="white" font-size="18">0</text>
+                                <text x="171" y="27" fill="white" font-size="18">-</text>
+                                <rect x="190" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/> 
+                                    <text x="201" y="27" fill="white" font-size="18">0</text>
+                            <rect x="240" y="3" width="113" height="34" rx="14" ry="14" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
+                                <rect x="250" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                                    <text x="261" y="27" fill="white" font-size="18">0</text>
+                                <text x="291" y="27" fill="white" font-size="18">*</text>
+                                <rect x="310" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/> 
+                                    <text x="321" y="27" fill="white" font-size="18">0</text>
+                            <rect x="360" y="3" width="113" height="34" rx="14" ry="14" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
+                                <rect x="370" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                                    <text x="381" y="27" fill="white" font-size="18">0</text>
+                                <text x="411" y="27" fill="white" font-size="18">/</text>
+                                <rect x="430" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/> 
+                                    <text x="441" y="27" fill="white" font-size="18">0</text>
+                            <rect x="480" y="3" width="113" height="34" rx="14" ry="14" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
+                                <rect x="490" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                                    <text x="501" y="27" fill="white" font-size="18">0</text>
+                                <text x="531" y="27" fill="white" font-size="18">^</text>
+                                <rect x="550" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/> 
+                                    <text x="561" y="27" fill="white" font-size="18">0</text>
+                            <rect x="600" y="3" width="113" height="34" rx="14" ry="14" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
+                                <rect x="610" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                                    <text x="621" y="27" fill="white" font-size="18">0</text>
+                                <text x="649" y="27" fill="white" font-size="18">%</text>
+                                <rect x="670" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/> 
+                                    <text x="681" y="27" fill="white" font-size="18">0</text>
+                        </svg>
+                        <p>基础运算符，和普通编程无异</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>2：random（）to（）（从（）到（）随机取一个数）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45">
+                            <rect x="0" y="3" width="186" height="34" rx="14" ry="14" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
+                                <text x="10" y="27" fill="white" font-size="18">random</text>
+                                <rect x="82" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                                    <text x="93" y="27" fill="white" font-size="18">0</text>
+                                <text x="120" y="27" fill="white" font-size="18">to</text>
+                                <rect x="143" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/> 
+                                    <text x="154" y="27" fill="white" font-size="18">0</text>
+                        </svg>
+                        <p>浮点随机数，随机的数几乎不可能是整数</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>3：min/max（）and（）（取（）或（）中最小/大值）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45">
+                            <rect x="0" y="3" width="194" height="34" rx="14" ry="14" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
+                                <text x="10" y="27" fill="white" font-size="18">min of</text>
+                                <rect x="72" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                                    <text x="83" y="27" fill="white" font-size="18">0</text>
+                                <text x="110" y="27" fill="white" font-size="18">and</text>
+                                <rect x="151" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/> 
+                                    <text x="162" y="27" fill="white" font-size="18">0</text>
+                            <rect x="220" y="3" width="194" height="34" rx="14" ry="14" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
+                                <text x="230" y="27" fill="white" font-size="18">max of</text>
+                                <rect x="292" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                                    <text x="303" y="27" fill="white" font-size="18">0</text>
+                                <text x="330" y="27" fill="white" font-size="18">and</text>
+                                <rect x="371" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/> 
+                                    <text x="382" y="27" fill="white" font-size="18">0</text>
+                        </svg>
+                        <p>取的是两个圆框内的其中一个值</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>4:（）and/or（）（（）和/或者（））</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>注意包涵关系，vizzy会首先判断最内的模块</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>5：not（）（不是（））</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>当圆框内为否命题时整个（not（））输出为真命题</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>6:（）=（）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>等于“=”不仅可以用于数学，更多用于逻辑判断如:（part（0） Activited）=（ture）的意思就id为0的部分（零件）的活动（开关）为是（开）则整个等于模块输出为真命题</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>7：比大小</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>这就是简单的大于小于，如果满足大小条件则为真命题</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>8：[]of（）特殊运算</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>(1)：abs 绝对值</p>
+                        <p>(2)：floor取小于这个数的整数，也就是直接去掉小数点</p>
+                        <p>(3)：ceiling取大于这个数的整数，直接去掉小数点再加一</p>
+                        <p>(4)：round 四舍五入去整数</p>
+                        <p>(5)：sqrt 算数平方根</p>
+                        <p>(6)：sin cos tan 三角函数，输入为弧度制输出为三角函数值的大小，如现有的是角度需要先转化为弧度制</p>
+                        <p>(9)：asin acos stan 反三角函数，和（6,7,8）相反，输入为三角函数值输出为弧度制</p>
+                        <p>(10)：ln自然对数</p>
+                        <p>(11)：log 以10为底数的对数</p>
+                        <p>(12)：deg2rad 角度制转弧度制</p>
+                        <p>(13)：rad2deg 弧度制转角度制，两个不要记反了</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>9：atan2 of （y）and（X）反三角函数</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>如图，模块输出的是α的弧度，结合上面的rad2deg便可得到相应的角度</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>10：if〈〉then（）slse（）（如果〈〉那么（）否则（））</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>如果〈〉内的命题为真则输出为第一个（），如果〈〉为假命题则输出为后一个（），（）里可以可以填写true或者false</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>11：join（alpha）（bravo）（）（加入（α）（β）（））</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>可以组成一个无空格的整体，如图输出的便是“alphabravo”由于无法输入单独的空格所以只能用英文负号隔开。可以用回车键提行，支持富文字</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>12：length of（）  （）的字符长度</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>数数，输出的是（）的字符个数，如输入（1,1,1）输出的不是根号3，而是7因为有7个字符</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>13：letter（）of（）（输出后面的（）内的第（）个字符）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p> 如图，输出就是字母“a”</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>14：letter from（）to（）fo（）（输出后面的（）内的第（）到第（）个字符）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>和上面同理，如图，输出为“lph”字符</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>15（）包含（）（（）里是否包含（））</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>如后面的框内包含前面的字符则输出为真命题，如图输出为真命题反之为假命题。</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>16：format（）（）（格式函数）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>现已知两种函数（{0:n1}）和（{0:e1}）</p>
+                        <p>1: {0:n1}意思是四舍五入到小数点后一位数</p>
+                        <p>2: {0:ne}科学计数法保留一位有效数字</p>   
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>17：friendly ［］(0) 有好的 在后面的数字后面添加所选择的物理符号。</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>翻译:以对用户友好的方式表示这个数，（给这个数字添加单位）</p>
+                        <p>(1)：Acceleration加速度 m/s²</p>
+                        <p>(2)：Angle Velocity 角速度</p>
+                        <p>(3)：density 大气密度 kg/m³</p>
+                        <p>(4)：distance 离目标“target”的距离 m</p>
+                        <p>(5)：energy 能量 j</p>
+                        <p>(6)：force 力 N</p>
+                        <p>(7)：specific impulse 比冲 S</p>
+                        <p>(8)：Mass 质量 kg</p>
+                        <p>(9)：Power 电量 W</p>
+                        <p>(10)：pressure 气压 Pa</p>
+                        <p>(11)：Temperature 温度 k( 凯尔文)</p>
+                        <p>(14)：time 时间 s</p>
+                        <p>(13)：Velocity 速度 m/s</p>
+
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>18：vec () () () （矢量化）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>将标量转化为矢量，图中三个空位分别对应xyz，如图讲将出（0,0,0）</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>19：矢量处理</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>对矢量进行处理 </p>
+                        <p>(1)：X；Y；Z分别是选取矢量的第一个，第二个和第三个 </p>
+                        <p>(2)：length 模长 </p>
+                        <p>(3)：norm 取同方向上的单位长度，即模长等于1 </p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>20：矢量计算</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>矢量计算 </p>
+                        <p>(1)：angle （求角度） 以角度制输出浮点数;范围0-180 </p>
+                        <p>(2)：clamp （钳制）钳制前面括号内矢量的模长不超过后面的值，在前面函数内填入矢量（x,y,z），在后面的（a）内填入模长，若矢量模长大于后面的值输出的则是模长为a的和（x,y,z）同向的矢量，若小于则输出本身，后面的括号内只能填纯数字 </p>
+                        <p>(3)：cross 叉乘 </p>
+                        <p>(4)：dot 点乘 </p>
+                        <p>(5)：dist  </p>
+                        <p>(6)：min；mix最大小模长 </p>
+                        <p>(7)：project 投影 </p>
+                        <p>(8)：scale </p>   
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>21：真假命题</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>恒定返回1或者0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chapter">
+                <h2>三：Craft Instructions 飞船指令</h2>
+                <p>这些模块将会帮助你控制你的作品，以让你的作品更好的在太空中遨游，他们能精确的控制每一个零件，做到比手动更灵活和迅速的操作</p>
+                <div class="Section">
+                    <h3>1：altitude ［］     海拔高度［］</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>以米为单位输出对应的高度，</p>
+                        <p>(1)：AGL相对于地面的高度</p>
+                        <p>(2)：ASL 相对于海平面的高度</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>2：orbit ［］   轨道［］</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>这个模块将会根据飞船相对于母星的运动状况输出对应的有关于轨道的数值</p>
+                        <p>(1)：apoapsis 远地点 这是飞船相对于母星最远的距离，也是线速度最慢的地点，简称ap点</p>
+                        <p>(2)：periapsis 近地点 这是飞船相对于母星最近的距离，也是线速度最快的点，简称pe点，但入大地图上无法显示出pe点，此模块将输出“NAN”，例如在火箭起飞的时候，还没有形成环形轨道的情况下，此模块将显示“NAN”</p>
+                        <p>(3)：time to apoapsis 到远地点的时间 飞船沿当前运动状态和受力情况，到达远地点的时间，通常可以简写为ap点</p>  
+                        <p>(4)：time to periapsis 到达近地点的时间 飞船沿当前运动状态和受力情况，到达远地点的时间，通常可以简写为pe点</p>
+                        <p>(5)：eccentricity 离心率 显示以母星为焦点的椭圆形轨道的离心率，输出值为0-1</p>
+                        <p>(6)：inclination 斜率</p>
+                        <p>(7)：period 周期 输出以秒为单位的轨道周期</p> 
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>3：atmosphere［］   大气［］</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>输出飞行器所在的位置的大气信</p>
+                        <p>（1）：air density 空气密度单位是kg/m³ </p>
+                        <p>（2）：air pressure 气体压强</p>
+                        <p>（3）：speed of sound 音速</p>
+                        <p>（4）：temperature 温度 </p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>4：performance［］   性能［］</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>飞船有关性能的信息</p>
+                        <p>(1)：Engine thrust 最大引推力 当前正在工作的所有发动机的推力直接加起来，注意你的发动机可能有夹角，实际推力将不是输出值</p>
+                        <p>(2)：mass 质量</p>
+                        <p>(3)：dry mass 干重 飞船除去燃料后的质量，若修改了质量可能出现负数</p>
+                        <p>(4)：fuel mass 燃料质质量 不会随着xml中质量的修改而改变</p>
+                        <p>(5)：max Engine thrust 最大引擎推力 这是所有激活的引擎的推力直接加起来，不包含关闭的引擎推力，注意你的发动机可能有夹角，实际推力最大将不是输出值！涡轮引擎是当前高度和速度下的引擎推力，无论引擎是否有燃料只要启动都会参与计算</p>
+                        <p>(6)：TWR 推重比 飞行器推力和质量的比值，换句话最大加速度</p>
+                        <p>(7)：current lsp 当前比冲</p>
+                        <p>(8)：stage Delta-V 当前阶段的速度变化量 当前阶段的燃料和引擎所产生的速度变化量，不会计算大气对此的影响，会随节流阀的大小和大气情况产生变化。</p>
+                        <p>(9)：stage burn time 当前阶段燃烧时间 当前阶段所打开的引擎满载的燃烧时间，会随节流阀的大小和大气情况产生变化。</p>    
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>5：fuel［］ 燃料［］</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>以百分百的形式输出剩余燃料的值</p>
+                        <p>(1)：battery 电池</p>
+                        <p>(2)：stage 阶段的 当前阶段剩余的化学燃料的百分比</p>
+                        <p>(3)：mono 单元燃料</p>
+                        <p>(4)：allstages  所有阶段 这是整个飞行器所剩的燃料百分比，空燃料箱分离后将回到100%</p> 
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>6：nav ［］  导航［］</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>此模块包含有关飞行器运动的信息，此模块输出为关于正在操作的飞船的质心关于所在行星的PCI坐标，xyz分开几乎没有意义。</p>
+                        <p>(1)：position （坐标）飞行器相对于母星的坐标，表示的是母星地心到飞行器质心的连线。</p>
+                        <p>(2)：Target position （目标坐标）目标飞行就是相对于母星的坐标，表示的是母星中心到目标飞行器的连线。</p>
+                        <p>(3)：heading （航向）输出的是0~360度，表示飞行器飞行的方向，0度对应北面</p>
+                        <p>(4)：pitch （俯仰角）飞行器和水平面的夹角，垂直于地面为+90度，垂直于地面向下为-90度，与海平面平行为0度，输出的值为角度的值。</p>
+                        <p>(5)：bank angle 倾斜角度</p>
+                        <p>(6)：angle of attack （攻角）飞行器相对于空气速度的夹角。</p>
+                        <p>(7)：side slip 侧滑</p>
+                        <p>(8)：north 北方</p>
+                        <p>(9)：east 西方</p>
+                        <p>(10)：craft roll/pitch/yaw axis （作品旋转/俯仰/偏航的轴的矢量）以作品为原点的坐标，craft roll axis 就是垂直于roll轴的矢量坐标。这个矢量的方向跟指挥舱或者芯片的方向没有关系，若默认芯片为rocket，在游戏开始时确定roll的方向就为垂直向上，此后随作品的运动而改变。 </p>  
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>7：velocity［］  速度</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>飞行器有关速度的信息</p>
+                        <p>(1)：surface 表面的 这是相对于母星地面的速度（PCI矢量）</p>
+                        <p>(2)：orbit 轨道的 这是当前的轨道的线速度（PCI矢量）</p>
+                        <p>(3)：target 目标的 这是目标的地表速度，不是和目标的相对速度（PCI矢量）</p>
+                        <p>(4)：gravity 重力的 相对当前母星的重力加速度，不是母星的表面的重力加速度，此模块的输出是实时计算的（PCI矢量）</p>
+                        <p>(5)：acceleration 加速度 当前受力情况产生的加速度，包括重力加速度（PCI矢量）</p>
+                        <p>(6)：angular 角速度 飞行器自旋的角速度，不是轨道的角速度，xyz分别对应pitch yaw roll（PCI矢量）</p>
+                        <p>(7)：lateral 水平的 平行于地面的速度分量（纯数字）</p>
+                        <p>(8)：Vertical 竖直的 垂直于地面的速度分量（纯数字）</p>
+                        <p>(9)：munch number 马赫数 相对母星地面的速度的马赫数，声速会随空气密度变化而变化（纯数字）</p>     
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>8：input ［］   输入［］的值</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>得到滑条的值，输出1～-1，与set同理</p>
+                        <p>(1)：roll （旋转）对应的是“Translation Mode Disabled禁用平移模式”下右摇杆的左和右，可以沿着作品向前的方向为轴旋转</p>
+                        <p>(2)：pitch （俯仰）对应的是“Translation Mode Disabled禁用平移模式”下右摇杆的上和下，可以沿着作品向前的方向俯仰</p>
+                        <p>(3)：Yaw （偏航）对应的是“Translation Mode Disabled禁用平移模式”下左摇杆的对左和右，可以沿着作品向前的方向水平偏转</p>
+                        <p>(4)：throttle 节流阀（油门）对应的是平面左端的黄色滑条或“Translation Mode Disabled禁用平移模式”下左摇杆的上和下，可以直接控制所开启的有油的油带正确的引擎的油门</p>
+                        <p>(5)：brake （刹车）对应的是“Translation Mode Disabled禁用平移模式”下左摇杆的上和下，但是需要在throttle为零的时候brake才会有读数，brake可以控制轮子的刹车和有反推的涡轮引擎的反推</p>
+                        <p>(6)：slider 1；slider 2 （滑条1.2）这是提给玩家自愿发挥的滑条，可以在创造中调整零件的滑条</p>
+                        <p>(7)：translate Forward （平移向前）对应的是“Translation Mode Disabled启用平移模式”下右摇杆的上和下，可以沿着作品向前的方向前进和后退</p>
+                        <p>(8)：translate right （平移向前）对应的是“Translation Mode Disabled启用平移模式”下左摇杆的左和右，可以沿着作品向左和向右</p>
+                        <p>(9)：translate up （水平向上）对应的是“Translation Mode Disabled启用平移模式”下左摇杆的左和右，可以沿着作品向上和向下</p>
+                        <p>(10)：translate mode （平移模式）这不是滑条，填入哈希值，表示禁用或启用false或true在某些版本中如不打开平移模式rcs将不响应vizzy所定义的</p>   
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>9：misc［］  杂物［］</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>判定飞行器的飞行状况</p>
+                        <p>(1)：stage （阶段）当前的阶段数，游戏开始时为0</p>
+                        <p>(2)：nus stage 阶段总数</p>
+                        <p>(3)：grounded （触地的）输出为false或true，触地则为真命题，输出为true</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>10：time ［］  ［］的时间</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>一秒为单位输出相应的时间</p>
+                        <p>(1)：frame delta time </p>
+                        <p>(2)：time since launch （发射后的时间）以秒为单位，输出距离第一次点火的时间</p>
+                        <p>(3)：total time （总时间）从开始游戏到现在的时间</p>   
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>11：name of ［］    ［］名字</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>以文字的格式输出［］的名字</p>
+                        <p>（1）：craft 作品</p>
+                        <p>（2）：planet 星球 飞行器所在引力范围内的星球</p>
+                        <p>（3）：target name 目标飞行器名称</p>
+                        <p>（4）：target planet 目标星球的名字</p>
+                            
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>12：activation group（1）  动作组（）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>在后面的括号内填入动作组序号，当动作组被激活此模块输出为真命题，反之亦然，在判定的模块中的〈〉内不用填写“activation group=true”，因为当动作组被激活时此模块输出的就已经是“true”了。</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>13：convert（）to lat/long/AGL  转化（）到经/纬/高</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>在（）内填入坐标矢量“position”，此模块将会以角度的形式输出所在引力范围内的星球的“lat/long”经纬，和以米为单位输出高度，海平面高度为0，最终输出的格式为（精度,维度,高度），的一个带括号的矢量</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>14：convert（）to position   转化（）为PCI坐标</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>在（）内填入经纬度和高度，将输出相应的PCI坐标，图像意义是星球球心到所填的经纬地度表示的位置的连线</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>15：get terrain［］at lat/long（）  得到经纬度为（）的地方的地势</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>在（）内填入经纬坐标，输出的是作品所在引力范围内的行星的信息，三为坐标将会自动省略最后一个。</p>
+                        <p>(1)：height（高度）以米为单位输出海拔高度</p>
+                        <p>(2)：color（颜色）以十六进制色的形式输出地表的颜色</p>       
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>16：planet （）［］     得到行星（）的［］</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>以正确的格式输出行星的信息</p>
+                        <p>(1)：Mass 质量，单位kg</p>
+                        <p>(2)：Radius 半径，单位m</p>
+                        <p>(3)：atmosphere height 大气高度，单位m</p>
+                        <p>(4)：solar position 太阳坐标 以太阳为母星的矢量坐标，图像意义是一个连接太阳和行星的连线</p>
+                        <p>(5)：Child planets 卫星名字 以文字的格式输出行星的卫星的名</p>
+                        <p>(6)：Crafts 作品 以列表的形式输出引力范围内的作品的名字</p>
+                        <p>(6)：crafts IDs 作品ID 以列表的形式输出引力范围内的作品的ID</p>
+                        <p>(7)：parent 母星 以文字的格式输出行星的母星的名字</p>        
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>17：part（）［］  零件（）的［］</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>在（）内填入零件的ID，无法识别名称</p>
+                        <p>(1)：mass 质量 以kg为单位输出零件质量，包括燃料</p>
+                        <p>(2)：activated 开关状态 根据零件是否被打开，输出false或true</p>
+                        <p>(3)：part type 零件类型 以文字的格式输出零件类型</p>
+                        <p>(4)：position 坐标 输出单个零件的PCI坐标位置</p>
+                        <p>(5)：temperature 温度 以开尔文为单位输出零件的温度</p>
+                        <p>(6-7)：min/max part ID   ID最小/大的同名零件 此模块的（）内不能直接填写ID名称，需要插入“part ID of（）”，在“part ID of（）”内填入零件名称</p>
+                        <p>(8)：under water 在水下的 输出0-1以表示零件在水下的百分百</p>  
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>18：part ID of（）    叫（）的零件的ID</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>（）内填入零件的名称，将输出对应的ID号码</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>19：part（）［ to ］（）   零件（）［］（）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>转化某零件或坐标的坐标系到零件或某坐标，local：本地的，以飞船作为参考系，XYZ分别表示yaw，pitch，roll轴作为坐标轴，PCI：在模块中指相对于母星的PCI坐标，图像意义是一个从母星中心到飞行器零件的连线，只是转化了参考系表示的矢量不变</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>20：craft（）［］    飞船（）的［］</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>在（）填入飞船ID，输出作品信息</p>
+                        <p>(1)：altitude 海拔高度</p>
+                        <p>(2)：destroyed 是否被摧毁的</p>
+                        <p>(3)：grounded 触地的</p>
+                        <p>(4)：mass 质量</p>
+                        <p>(5)：name 名字</p>
+                        <p>(6)：part count 零件数量</p>
+                        <p>(7)：planet 行星 作品坐在的引力范围内的行星</p>
+                        <p>(8)：position 坐标（矢量）</p>
+                        <p>(9)：Velocity 速度（矢量）</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>21：craft ID of（）   名为（）的作品ID</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="40">
+                            <rect x="0" y="3" width="235" height="34" rx="14" ry="14" fill="#404040" stroke-width="1" stroke="#303030"/>
+                                <text x="10" y="27" fill="white" font-size="18">craft ID of</text>
+                                <rect x="102" y="6" width="123" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                                    <text x="117" y="27" fill="white" font-size="18">CraftName</text>
+                        </svg>
+                        <p>在（）内填入作品的名字，输出的则为作品的ID号码</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="chapter">
+               <h2></h2>
+                <div class="Section">
+                    <h3></h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="unit">
+            <h1>操作实例</h1>
+            <p>收录了一些简单的vizzy实例</p>
+            <div class="chapter">
+                <h2>1：让初始火箭悬停到AGL 10米的高度</h2>
+                <p>悬停到发射场上空10m的高度，稳定高度一段时间</p>
+                <div class="Section">
+                    <h3>1：问题分析</h3>
+                    <p>
+                        
+                    </p>
                 </div>
             </div>
         </div>
