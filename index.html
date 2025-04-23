@@ -717,7 +717,85 @@
                     </div>
                 </div>
             </div>
-
+            <div class="chapter">
+               <h2>五：events 事件</h2>
+               <p>有关游戏进行的模块</p>
+                <div class="Section">
+                    <h3></h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="chapter">
+                <h2>六：variables 变量</h2>
+                <p>设置变量以使程序变得更简洁明了，简化重复的运算以优化程序，或做到更多的复杂运算。</p>
+                <p>建立变量，选择variable部分，点击左下角“create</p>
+                <p>修改变量，每一个绿色的变量模块左边有一个笔的标志，表示修改，点击会出现弹窗，“cancel”：返回</p>
+                <div class="Section">
+                    <h3></h3>      
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="chapter">
+                <h2>七：lists 列表</h2>
+                <p>我们可以把列表理解为集合，首先需要说明四个概念，即列表list，元素（项目），索引（位置）以及长度length，我们举一个栗子，有一个班，班里有很多学生，那么我们手上的名单就是列表，名单上的人就是元素，他们的学号或者座位号就是索引，班上的总人数就是列表的长度</p>
+                <p>设置列表可以方便地对多个对象或者具有对应关系的对象进行处理，或者反过来将需要的数据按一定规则进行存储而不用用户手动记录。目前为止能明确的是列表都是单行。</p>
+                <p>列表里的元素和索引是一一对应的，列表的本质就是表格，</p>
+                <p>建立列表，首先选择lists部分，点击左下方“Create Lists variable”进行创建，在弹出的对话框内填入你想要的列表名称，字母数字都可以，只要自己能认识就行。点击“CREATE”完成创建，创建完成后，列表部分内最下方会出现紫色的列表模块，可以被插入到()。</p>
+                <p>修改列表名称与上方修改变量名称完全一致。</p>
+                <p>另外，列表非常友好的一点是，需要填入元素的地方都会写item，需要拖入列表的地方全部是空的，而填写列表索引的地方全部写上数字1，列表的位置（索引处）从1开始，到列表长度结束的整数。</p>
+                <p>注：下列凡是括号内写“列表”的都是填入列表名称，写“1”的都是填入数字，写“元素”的都是填入元素。</p>
+                <div class="Section">
+                    <h3></h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="chapter">
+                <h2>八：Custom Expressions 自定义表达式</h2>
+                <p>自定义表达式作用是将程序内复杂的自定义运算或重复调用的运算等独立出程序，使程序更加整洁，更改参数更加方便。创建方式参考下面的自定义指令。</p>
+                <p>点击左下角create Custom Expressions会出现弹窗，并附有“enter a name of Custom Expressions”意为，输入自定义表达式的名称，这里可以输入任何自己喜欢的字符，如图输入的是“addition”，接下来会出现一个新的弹窗，底部会出现“cancel”取消 “add text”添加文本 “add parameter”添加变量 “create”创建，达到如图效果，便是先点击的“add parameter”添加变量，并输入字符“a”确认后，点击“add text”添加文本，并输入字符“+”再点击“add parameter”添加变量，输入字符“b”最后点击“create”创建，系统会自动为你插入一个“return”并生成一个圆形空位（）,可填入运算符和变量。</p>
+                <div class="Section">
+                    <h3></h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="chapter">
+                <h2>九：Custom Instructions 自定义指令</h2>
+                <p>自定义指令可用于自定义需要执行的指令顺序，但它们只会运行一次，它们类似于由多个模块组成一个新的模块。创建之后，这个自定义模块将放置在您的custom instructions的目录中，这样您就可以定义这个自定义指令应该执行的确切指令。另外，将在左侧的“自定义指令”面板中创建一个新的指令模块，以便您可以用于在程序中调用/执行此自定义指令</p>
+                <p>创建自定义指令，点击左下角create Custom Instructions会出现弹窗，在窗口中输入自定义指令的名称，点击create便会出现一个新的弹窗，此时弹窗底部会出现“cancel”取消 “add text”添加文本 “add parameter”添加变量 “create”创建。</p>
+                <p>若要达到如图效果，点击“add parameter”输入自定义参数的名称，在自定义指令的模块中会出现一个黄色的椭圆形自定义参数模块，再点击“add text”输入文本，最后点击“create”完成创建，便可达到如图效果。</p>
+                <p>调用，完成创建后在custom instructions的目录中出现与之相对应的模块，你可以拖动并调用，在程序中会自动为你添加一个如（1）图一样的模块，拖动模块并在下面添加其他模块以合成新的模块。如（2）图的模块可以被放在程序当中来表示自定义模块，其效果和在（1）图下面接的模块等效，其中于黄色的参数模块相同的位置对应的括号可以赋予该参数值，参数可以在（1）图的模块中被拖出并调用在自定义指令中。</p>
+                <div class="Section">
+                    <h3></h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="chapter">
+                <h2>十：multi-function display 多功能显示器</h2>
+                <p>在“多功能显示器”这个零件里创造部件并显示，用vizzy调整大小；角度；坐标；透明度等等，来显示自己想要的图形或文字内容，多功能显示器简称“mfd”，在这里你可以显示任何东西，甚至3D图案，MDF默认的小部件数量上限是100个，像素结构的上限是265个像素，其原因是防止程序中出现过于巨大的数，无限的生成模块导致设备卡死或宕机，可以在xml中修改。</p>
+                <div class="Section">
+                    <h3></h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
             <div class="chapter">
