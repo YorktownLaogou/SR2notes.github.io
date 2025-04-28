@@ -198,50 +198,7 @@
                         <svg width="100%" height="45">
                             <polygon points="0,0 5,0 13,5 21,0 84,0 84,40 21,40 13,45 5,40 0,40" fill="#404040" stroke-width="1" stroke="#303030"/>
                             <text x="10" y="27" fill="white" font-size="18">log</text> 
-                            <rect x="46" y="6" width="28" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
-                        </svg> 
-                        <p>Log和display大致相同，其不同点是log（）可以将数据记录在View Log里，方便查看某一时刻的数值，当然log（）将不再把结果显示在屏幕上了</p>
-                    </div>
-                </div>
-                <div class="Section">
-                    <h3>11：break （打破循环）</h3>
-                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
-                        <svg width="100%" height="55">
-                            <polygon points="0,0 5,0 13,5 21,0 69,0 69,40 21,40 13,45 5,40 0,40" fill="#FFB203" stroke-width="1" stroke="#EFA203"/>
-                            <text x="10" y="27" fill="white" font-size="18">Break</text> 
-                        </svg>
-                        <p>这将会跳出这个本循环，运行外侧循环</p>
-                    </div>
-                </div>
-                <div class="Section">
-                    <h3>12：#（） （便签）</h3>
-                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
-                        <svg width="100%" height="45">
-                            <polygon points="0,0 5,0 13,5 21,0 181,0 181,40 21,40 13,45 5,40 0,40" fill="#404040" stroke-width="1" stroke="#303030"/>
-                                <text x="10" y="27" fill="white" font-size="18">#</text> 
-                            <rect x="33" y="6" width="138" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
-                                <text x="48" y="27" fill="white" font-size="18">Coment Text</text> 
-                        </svg>
-                        <p>这个模块不会运行，你可以把它放在任何位置用于记录某些东西，你可以在里面自由填写，或是笔记，或是批注，你可以把它当成便签一样随意贴放</p>
-                        <p>注:正版不支持中文，不支持Unicode，Jundoor懒狗</p>
-                    </div>
-                </div>
-            </div>
-            <div class="chapter">
-                <h2>二：operators （运算符）</h2>
-                <p>这些模块包括了几乎所有的运算符号，可以进行几乎所有的物理学运算，让你可以用vizzy完成玩家几乎不可能完成的任务。在此只简单翻译计算模块，这些模块包括了高中和大学的内容，需要些数学基础</p>
-                <div class="Section">
-                    <h3>1：基础运算符号</h3>
-                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
-                        <svg width="100%" height="45">
-                            <rect x="0" y="3" width="113" height="34" rx="14" ry="14" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
-                                <rect x="10" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
-                                    <text x="21" y="27" fill="white" font-size="18">0</text>
-                                <text x="51" y="27" fill="white" font-size="18">+</text>
-                                <rect x="70" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/> 
-                                    <text x="81" y="27" fill="white" font-size="18">0</text>
-                            <rect x="120" y="3" width="113" height="34" rx="14" ry="14" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
-                                <rect x="130" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                            <rect x="46" y="6" width="28" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/rect x="130" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
                                     <text x="141" y="27" fill="white" font-size="18">0</text>
                                 <text x="171" y="27" fill="white" font-size="18">-</text>
                                 <rect x="190" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/> 
@@ -883,49 +840,49 @@
                           <td>等同于 clamp(x, 0, 1)。</td>
                         </tr>
                         <tr>
-                            <td>？？？？</td>
+                            <td>角度差</td>
                             <td>deltaangle(a, b)</td>
-                            <td>The shortest angle delta between angles a and b in degrees.</td>
+                            <td>计算两个角度的最短角度差，劣弧角度差</td>
                         </tr>
                         <tr style="background-color: #f9f9f9;">
-                            <td>？？？？</td>
+                            <td>自然对数幂</td>
                             <td>exp(x)</td>
-                            <td>Returns e raised to the power of x.</td>
+                            <td>返回e的x次方</td>
                         </tr>
                         <tr>
-                            <td>？？？？</td>
+                            <td>向下取整</td>
                             <td>floor(x)</td>
-                            <td>x rounded down to an integer.</td>
+                            <td>向下取整</td>
                         </tr>
                         <tr style="background-color: #f9f9f9;">
-                            <td>？？？？</td>
+                            <td>反向线性插值</td>
                             <td>inverselerp(a, b, x)</td>
-                            <td>Calculates the linear parameter t that produces the interpolant value within the range [a, b].</td>
+                            <td>x从a到b的插值比例，1,100,0.5应返回50</td>
                         </tr>
                         <tr>
-                            <td>？？？？</td>
+                            <td>线性插值</td>
                             <td>lerp(a, b, t)</td>
-                            <td>Linearly interpolates between a and b, by a proportion of t.</td>
+                            <td>输出a到b之间基于比例t输出值</td>
                         </tr>
                         <tr style="background-color: #f9f9f9;">
-                            <td>？？？？</td>
+                            <td>角度线性插值</td>
                             <td>lerpangle(a, b, t)</td>
-                            <td>Similar to lerp, but interpolates correctly when values pass 360 degrees.</td>
+                            <td>自动选择劣弧线性插值</td>
                         </tr>
                         <tr>
-                            <td>？？？？</td>
+                            <td>不限制线性插值</td>
                             <td>lerpunclamped(a, b, t)</td>
-                            <td> Similar to lerp, but doesn't clamp the value between a and b.</td>
+                            <td>线性插值，但不限制t在0-1之间 输出也不限制在a-b之间</td>
                         </tr>
                         <tr style="background-color: #f9f9f9;">
-                            <td>？？？？</td>
+                            <td>对数</td>
                             <td>log(x, p)</td>
-                            <td>The logarithm of x in base p.</td>
+                            <td>p为底数的对数</td>
                         </tr>
                         <tr>
-                            <td>？？？？</td>
+                            <td>对数</td>
                             <td>log10(x)</td>
-                            <td>Equivalent to log(x, 10).</td>
+                            <td>固定以10为底数的对数</td>
                         </tr>
                         <tr style="background-color: #f9f9f9;">
                             <td>？？？？</td>
@@ -933,14 +890,14 @@
                             <td>"Ping-pongs" the value x so it is never larger than l and never less than 0.</td>
                         </tr>
                         <tr>
-                            <td>？？？？</td>
+                            <td>最大值</td>
                             <td>max(a, b)</td>
-                            <td>The largest value between a and b.</td>
+                            <td>输出a b中较大的</td>
                         </tr>
                         <tr style="background-color: #f9f9f9;">
-                            <td>？？？？</td>
+                            <td>最小值</td>
                             <td>min(a, b)</td>
-                            <td>The smallest value between a and b.</td>
+                            <td>输出a，b中较小的一个</td>
                         </tr>
                         <tr>
                             <td>？？？？</td>
