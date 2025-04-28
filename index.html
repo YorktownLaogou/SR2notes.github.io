@@ -24,6 +24,64 @@
         padding: 20px;
     }
 
+    /* 折叠按钮样式 */
+    .toggle-btn 
+    {
+        display: none;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    /* 长屏样式：当屏幕宽度小于一定值或宽高比小于1时，目录移到顶部 */
+    @media (max-width: 768px) or (max-aspect-ratio: 1/1) {
+        .sidebar 
+        {
+            width: 100%;
+            height: 60vh; /* 下拉时占60%屏幕高度 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-right: none;
+            border-bottom: 2px solid #ccc;
+            z-index: 1000;
+            overflow-y: auto; /* 内容多时可滚动 */
+            transition: height 0.3s ease;
+        }
+
+        .sidebar.collapsed 
+        {
+            height: 10vh; /* 收起时占10%屏幕高度 */
+        }
+
+        .content 
+        {
+            margin-left: 0;
+            margin-top: 60vh; /* 与展开状态的目录高度一致 */
+            width: 100%;
+            transition: margin-top 0.3s ease;
+        }
+
+        .content.collapsed 
+        {
+            margin-top: 10vh; /* 与收起状态的目录高度一致 */
+        }
+
+        .toggle-btn 
+        {
+            display: block;
+        }
+    }
+
+
+
+
     .VizzyWigets
     {
         /*filter: drop-shadow(3px 3px 2px gray);*/
@@ -69,12 +127,48 @@
     <title>老狗的RS2文档</title>
 </head>
 <body>
-    <div class="sidebar">目录内容</div>
+    <div class="sidebar">
+        <script>
+            function toggleSidebar() 
+            {
+                const sidebar = document.querySelector('.sidebar');
+                const content = document.querySelector('.content');
+                const toggleBtn = document.querySelector('.toggle-btn');
+    
+                sidebar.classList.toggle('collapsed');
+                content.classList.toggle('collapsed');
+    
+                // 切换按钮文本
+                if (sidebar.classList.contains('collapsed')) 
+                {
+                    toggleBtn.textContent = '展开';
+                } 
+                else 
+                {
+                    toggleBtn.textContent = '收起';
+                }
+            }
+        </script>
+        <!-- 目录用div包裹每一个<a>懒得做了 -->
+        <a href="#Translation" style="color: #000000; text-decoration: none;">1.翻译和注释<br></a> 
+            <a href="#tag_ProgramFlow" style="color: #000000; text-decoration: none;">1.1.program flow（程序流程）<br></a> 
+            <a href="#tag_CraftInstructions" style="color: #000000; text-decoration: none;">1.3.Craft Instructions 飞船指令<br></a> 
+            <a href="#tag_Events" style="color: #000000; text-decoration: none;">1.5.events 事件<br></a> 
+            <a href="#tag_Variables" style="color: #000000; text-decoration: none;">1.6.variables 变量<br></a> 
+            <a href="#tag_lists" style="color: #000000; text-decoration: none;">1.7.lists 列表<br></a> 
+            <a href="#tag_CustomExpressions" style="color: #000000; text-decoration: none;">1.8.Custom Expressions 自定义表达式<br></a>
+            <a href="#tag_CustomInstructions" style="color: #000000; text-decoration: none;">1.9.Custom Instructions 自定义指令<br></a> 
+            <a href="#tag_Multi-Function Display" style="color: #000000; text-decoration: none;">1.10.multi-function display 多功能显示器<br></a>  
+        <a href="#TheFunkTree" style="color: #000000; text-decoration: none;">2.FUNK TREE<br></a> 
+        <a href="#ProgramInstances" style="color: #000000; text-decoration: none;">3.程序实例</a> 
+
+        <button class="toggle-btn" onclick="toggleSidebar()">收起</button>
+    </div>
     <div class="content">
-        <div class="unit">
+        <div class="unit" id ="Translation" >
             <h1>全部翻译及注释</h1>
             <p>在vizzy中可以被执行的程序和数据被称为模块，可以拖动某些，模块使其从上到下排列，系统会根据排列顺序以一定速度依次对模块做出相应的反馈，并进入下一个模块直到结束，以此来完成用户所编辑的vizzy程序</p>
-            <div class="chapter">
+            <div class="chapter" id ="tag_ProgramFlow">
                 <h2>一：program flow（程序流程）</h2>
                 <p>此目录下的程序可以连接原本独立的程序片段而形成一个连续完整的程序、，更好的使用能帮你完成更大更复杂的程序组。</p>
                 <div class="Section">
@@ -432,7 +526,7 @@
                     </div>
                 </div>
             </div>
-            <div class="chapter">
+            <div class="chapter"  id ="tag_CraftInstructions">
                 <h2>三：Craft Instructions 飞船指令</h2>
                 <p>这些模块将会帮助你控制你的作品，以让你的作品更好的在太空中遨游，他们能精确的控制每一个零件，做到比手动更灵活和迅速的操作</p>
                 <div class="Section">
@@ -683,7 +777,7 @@
 
 
 
-            <div class="chapter">
+            <div class="chapter" id="tag_Events">
                <h2>五：events 事件</h2>
                <p>有关游戏进行的模块</p>
                 <div class="Section">
@@ -694,7 +788,7 @@
                     </div>
                 </div>
             </div>
-            <div class="chapter">
+            <div class="chapter" id="tag_Variables">
                 <h2>六：variables 变量</h2>
                 <p>设置变量以使程序变得更简洁明了，简化重复的运算以优化程序，或做到更多的复杂运算。</p>
                 <p>建立变量，选择variable部分，点击左下角“create</p>
@@ -707,7 +801,7 @@
                     </div>
                 </div>
             </div>
-            <div class="chapter">
+            <div class="chapter" id="tag_lists">
                 <h2>七：lists 列表</h2>
                 <p>我们可以把列表理解为集合，首先需要说明四个概念，即列表list，元素（项目），索引（位置）以及长度length，我们举一个栗子，有一个班，班里有很多学生，那么我们手上的名单就是列表，名单上的人就是元素，他们的学号或者座位号就是索引，班上的总人数就是列表的长度</p>
                 <p>设置列表可以方便地对多个对象或者具有对应关系的对象进行处理，或者反过来将需要的数据按一定规则进行存储而不用用户手动记录。目前为止能明确的是列表都是单行。</p>
@@ -724,7 +818,7 @@
                     </div>
                 </div>
             </div>
-            <div class="chapter">
+            <div class="chapter" id="tag_CustomExpressions">
                 <h2>八：Custom Expressions 自定义表达式</h2>
                 <p>自定义表达式作用是将程序内复杂的自定义运算或重复调用的运算等独立出程序，使程序更加整洁，更改参数更加方便。创建方式参考下面的自定义指令。</p>
                 <p>点击左下角create Custom Expressions会出现弹窗，并附有“enter a name of Custom Expressions”意为，输入自定义表达式的名称，这里可以输入任何自己喜欢的字符，如图输入的是“addition”，接下来会出现一个新的弹窗，底部会出现“cancel”取消 “add text”添加文本 “add parameter”添加变量 “create”创建，达到如图效果，便是先点击的“add parameter”添加变量，并输入字符“a”确认后，点击“add text”添加文本，并输入字符“+”再点击“add parameter”添加变量，输入字符“b”最后点击“create”创建，系统会自动为你插入一个“return”并生成一个圆形空位（）,可填入运算符和变量。</p>
@@ -736,7 +830,7 @@
                     </div>
                 </div>
             </div>
-            <div class="chapter">
+            <div class="chapter" id="tag_CustomInstructions">
                 <h2>九：Custom Instructions 自定义指令</h2>
                 <p>自定义指令可用于自定义需要执行的指令顺序，但它们只会运行一次，它们类似于由多个模块组成一个新的模块。创建之后，这个自定义模块将放置在您的custom instructions的目录中，这样您就可以定义这个自定义指令应该执行的确切指令。另外，将在左侧的“自定义指令”面板中创建一个新的指令模块，以便您可以用于在程序中调用/执行此自定义指令</p>
                 <p>创建自定义指令，点击左下角create Custom Instructions会出现弹窗，在窗口中输入自定义指令的名称，点击create便会出现一个新的弹窗，此时弹窗底部会出现“cancel”取消 “add text”添加文本 “add parameter”添加变量 “create”创建。</p>
@@ -750,7 +844,7 @@
                     </div>
                 </div>
             </div>
-            <div class="chapter">
+            <div class="chapter" id="tag_Multi-Function Display">
                 <h2>十：multi-function display 多功能显示器</h2>
                 <p>在“多功能显示器”这个零件里创造部件并显示，用vizzy调整大小；角度；坐标；透明度等等，来显示自己想要的图形或文字内容，多功能显示器简称“mfd”，在这里你可以显示任何东西，甚至3D图案，MDF默认的小部件数量上限是100个，像素结构的上限是265个像素，其原因是防止程序中出现过于巨大的数，无限的生成模块导致设备卡死或宕机，可以在xml中修改。</p>
                 <div class="Section">
@@ -766,52 +860,350 @@
 
 
 
-        <div class="unit">
+        <div class="unit" id="TheFunkTree">
             <h1>FUNK TREE</h1>
             <p>本质上，您可以遵循以下语法输入任何数学表达式，并且该表达式将在每一次调用中进行计算。您可以从各种来源获取数据，并按照您喜欢的方式进行处理。</p>
             <div class="chapter">
-                <h2>输入</h2>
-                <p>包括飞船产生的数据，位置等等，飞船的自变量</p>
+                <h2>语法</h2>
                 <div class="Section">
-                    <h3>1：问题分析</h3>
-                    <p>
-                        
-                    </p>
+
+
                 </div>
             </div>
             <div class="chapter">
-                <h2>输入</h2>
-                <p>用户操控的滑条，设定的航向等等</p>
+                <h2>自变量和数据</h2>
+                <p>包括飞船产生的数据，位置等等，飞船的自变量，一般来讲是vizzy不可改变的</p>
                 <div class="Section">
-                    <h3>1：问题分析</h3>
-                    <p>
-                        
-                    </p>
+                    <h3>输入轴</h3>
+                    <table style="border-collapse: collapse; width: 100%; text-align: left;">
+                        <tr style="background-color: #f2f2f2;">
+                            <th>名字</th>
+                            <th>数据类型</th>
+                            <th>介绍</th>
+                        </tr>
+                        <tr>
+                            <td>activationGroup</td>
+                            <td>int</td>
+                            <td>分配给输入控制器的激活组。禁用此功能后，输入控制器将不会更新其输入。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>currentValue</td>
+                            <td>float</td>
+                            <td>这在游戏中用于保存游戏状态。</td>
+                        </tr>
+                        <tr>
+                            <td>designerInputOptions</td>
+                            <td>string</td>
+                            <td>这是零件属性面板中可用输入的逗号分隔列表。此列表会被 Tinker 面板中的“显示隐藏属性”复选框覆盖。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>ignorePartActivationState</td>
+                            <td>bool</td>
+                            <td>如果设置为 true，即使部件未激活，输入控制器也将起作用。这对于自动激活部件是必需的。</td>
+                        </tr>
+                        <tr>
+                            <td>input</td>
+                            <td>string</td>
+                            <td>要使用的输入轴。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>inputAxisRange</td>
+                            <td>string</td>
+                            <td>一个、两个或三个数字，以逗号分隔。它们定义映射到输出值时预期的输入值范围。可以是 max，min，max 或 min，zero，max</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="Section">
+                    <h3>飞行器输入轴</h3>
+                    <table style="border-collapse: collapse; width: 100%; text-align: left;">
+                        <tr style="background-color: #f2f2f2;">
+                            <th>名字</th>
+                            <th>介绍</th>
+                        </tr>
+                        <tr>
+                            <td>Brake</td>
+                            <td>刹车</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>EvaAnalogJump</td>
+                            <td>NULL</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="Section">
+                    <h3>飞行数据</h3>
+                    <table style="border-collapse: collapse; width: 100%; text-align: left;">
+                        <tr style="background-color: #f2f2f2;">
+                            <th>名字</th>
+                            <th>数据类型</th>
+                            <th>介绍</th>
+                        </tr>
+                        <tr>
+                            <td>FlightData.Acceleration</td>
+                            <td>vector</td>
+                            <td>飞行器的加速度矢量，用于描述其运动变化</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.AccelerationMagnitude</td>
+                            <td>double</td>
+                            <td>加速度矢量的模值，表示加速度的大小</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.AltitudeAboveGroundLevel</td>
+                            <td>double</td>
+                            <td>飞行器距离地面的高度。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.AltitudeAboveSeaLevel</td>
+                            <td>double</td>
+                            <td>飞行器距离海平面的高度。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.AltitudeAboveTerrain</td>
+                            <td>double</td>
+                            <td>飞行器距离地形表面的高度。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.AngleOfAttack</td>
+                            <td>double</td>
+                            <td>飞行器相对于气流的迎角。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.AngularVelocity</td>
+                            <td>vector</td>
+                            <td>飞行器的角速度矢量，用于描述其旋转变化</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.AngularVelocityMagnitude</td>
+                            <td>double</td>
+                            <td>角速度矢量的模值，表示旋转速度的大小。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.BankAngle</td>
+                            <td>double</td>
+                            <td>飞行器的倾斜角，用于描述水平面上的偏转。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.CraftForward</td>
+                            <td>vector</td>
+                            <td>飞行器的前向方向矢量。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.CraftRight</td>
+                            <td>vector</td>
+                            <td>飞行器的右侧方向矢量。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.CraftUp</td>
+                            <td>vector</td>
+                            <td>飞行器的上方方向矢量。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.CurrentEngineThrust</td>
+                            <td>float</td>
+                            <td>当前发动机的推力。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.CurrentEngineThrustUnscaled</td>
+                            <td>float</td>
+                            <td>未缩放的当前发动机推力。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.CurrentMass</td>
+                            <td>float</td>
+                            <td>飞行器的当前总质量。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.CurrentMassUnscaled</td>
+                            <td>float</td>
+                            <td>未缩放的飞行器当前总质量。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.CurrentReactionControlNozzleThrust</td>
+                            <td>float</td>
+                            <td>当前反应控制喷嘴的推力。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.DeltaVStage</td>
+                            <td>double</td>
+                            <td>当前阶段的ΔV值。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.DragAccelerationMagnitude</td>
+                            <td>float</td>
+                            <td>空气阻力加速度的模值。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.East</td>
+                            <td>vector</td>
+                            <td>指向东边的方向矢量。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.FuelMass</td>
+                            <td>float</td>
+                            <td>剩余燃料的质量。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.Gravity</td>
+                            <td>vector</td>
+                            <td>重力方向的矢量。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.GravityMagnitude</td>
+                            <td>float</td>
+                            <td>重力加速度的模值。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.Grounded</td>
+                            <td>bool</td>
+                            <td>是否处于着陆状态。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.Heading</td>
+                            <td>double</td>
+                            <td>当前航向角度。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.InWater</td>
+                            <td>bool</td>
+                            <td>是否处于水中。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.LateralSurfaceVelocity</td>
+                            <td>double</td>
+                            <td>沿侧面方向的速度。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.MachNumber</td>
+                            <td>float</td>
+                            <td>当前马赫数。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.MaxActiveEngineThrust</td>
+                            <td>float</td>
+                            <td>最大有效发动机推力。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.MaxActiveEngineThrustUnscaled</td>
+                            <td>float</td>
+                            <td>未缩放的最大有效发动机推力。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.North</td>
+                            <td>vector</td>
+                            <td>指向北边的方向矢量。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.ParentPlanetOcclusion</td>
+                            <td>float</td>
+                            <td>母星体的遮挡系数。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.Pitch</td>
+                            <td>double</td>
+                            <td>飞行器的俯仰角。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.Position</td>
+                            <td>vector</td>
+                            <td>飞行器的当前位置。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.PositionNormalized</td>
+                            <td>vector</td>
+                            <td>归一化的飞行器当前位置。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.RemainingBattery</td>
+                            <td>float</td>
+                            <td>剩余电池电量。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.RemainingFuelInStage</td>
+                            <td>float</td>
+                            <td>当前阶段剩余燃料量。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.RemainingMonopropellant</td>
+                            <td>float</td>
+                            <td>剩余的单组元燃料量。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.SideSlip</td>
+                            <td>double</td>
+                            <td>侧滑角。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.SolarRadiationDirection</td>
+                            <td>vector</td>
+                            <td>太阳辐射的方向矢量。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.SolarRadiationIntensity</td>
+                            <td>double</td>
+                            <td>太阳辐射的强度。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.SupportsWarpBurn</td>
+                            <td>bool</td>
+                            <td>是否支持时间加速燃烧。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.SurfaceVelocity</td>
+                            <td>vector</td>
+                            <td>飞行器的地表速度矢量。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.SurfaceVelocityMagnitude</td>
+                            <td>double</td>
+                            <td>表面速度的模值。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.TimeDelta</td>
+                            <td>double</td>
+                            <td>时间增量。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.TimeMultiplier</td>
+                            <td>double</td>
+                            <td>时间倍率。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.TimeReal</td>
+                            <td>double</td>
+                            <td>实际时间。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.Velocity</td>
+                            <td>vector</td>
+                            <td>飞行器的速度矢量。</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.VelocityMagnitude</td>
+                            <td>double</td>
+                            <td>NULL</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.VerticalSurfaceVelocity</td>
+                            <td>vector</td>
+                            <td>NULL</td>
+                        </tr>
+                        <tr>
+                            <td>FlightData.WeightedThrottleResponse</td>
+                            <td>float</td>
+                            <td>当前节流阀的响应值，经过加权计算。</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td>FlightData.WeightedThrottleResponseTime</td>
+                            <td>float</td>
+                            <td>节流阀响应所需的时间，加权后结果。</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
             <div class="chapter">
-                <h2>飞行数据</h2>
-                <p>包括飞船产生的数据，位置等等，飞船的自变量</p>
-                <div class="Section">
-                    <h3>1：问题分析</h3>
-                    <p>
-                        
-                    </p>
-                </div>
-            </div>
-            <div class="chapter">
-                <h2>常数</h2>
-                <p>始终相同的值</p>
-                <div class="Section">
-                    <h3>1：问题分析</h3>
-                    <p>
-                        
-                    </p>
-                </div>
-            </div>
-            <div class="chapter">
-                <h2>函数方法</h2>
-                <p>最后，有一些有用的函数可以帮您进行数学运算</p>
+                <h2>运算符和函数</h2>
+                <p>您还可以使用 AG1 到 AG10 访问激活组状态。如果您愿意，可以直接在其中输入一个常量值，例如 0.5、-1 甚至 .3。这将保持不变。此外，您还可以引用 pi、e、true 或 false 来获取它们各自的值，在 Vizzy 中使用 Funk 时，您只需输入变量名称即可引用程序中的变量，如果它们是向量，则需要添加 v:。虽然 Funk 没有任何字符串运算符，但如果您希望它输出字符串，则必须用 "" 括起来。</p>
                 <div class="Section">
                     <table style="border-collapse: collapse; width: 100%; text-align: left;">
                         <tr style="background-color: #f2f2f2;">
@@ -900,9 +1292,9 @@
                             <td>输出a，b中较小的一个</td>
                         </tr>
                         <tr>
-                            <td>？？？？</td>
+                            <td> 次方</td>
                             <td>pow(x, p)</td>
-                            <td>x raised to the power of p.</td>
+                            <td>x 的 p 次方。</td>
                         </tr>
                         <tr style="background-color: #f9f9f9;">
                             <td>？？？？</td>
@@ -910,62 +1302,62 @@
                             <td>Loops the value x so it is never larger than l and never less than 0.</td>
                         </tr>
                         <tr>
-                            <td>？？？？</td>
+                            <td>临近取整</td>
                             <td>round(x)</td>
-                            <td> Rounds x to the nearest integer.</td>
+                            <td>将 x 四舍五入为最接近的整数。</td>
                         </tr>
                         <tr style="background-color: #f9f9f9;">
-                            <td>？？？？</td>
+                            <td>正负</td>
                             <td>sign(x)</td>
-                            <td>The sign of x (1 if x positive, -1 if x negative)</td>
+                            <td>x 的符号（如果 x 为正则为 1，如果 x 为负则为 -1）</td>
                         </tr>
                         <tr>
-                            <td>？？？？</td>
+                            <td>平滑插值</td>
                             <td>smoothstep(a, b, t)</td>
-                            <td>Similar to lerp, but with smoothing at the ends.</td>
+                            <td>与 lerp 类似，但末端更加平滑。</td>
                         </tr>
                         <tr style="background-color: #f9f9f9;">
-                            <td>？？？？</td>
+                            <td>开根号</td>
                             <td>sqrt(x)</td>
-                            <td>The square root of x.</td>
+                            <td>x的0.5次幂</td>
                         </tr>
                         <tr>
-                            <td>？？？？</td>
+                            <td>正弦</td>
                             <td>sin(x)</td>
-                            <td>The sine of x (degrees)</td>
+                            <td>sin(角度)</td>
                         </tr>
                         <tr style="background-color: #f9f9f9;">
-                            <td>？？？？</td>
+                            <td>余弦</td>
                             <td>cos(x)</td>
-                            <td>The cosine of x (degrees)</td>
+                            <td>cos(角度)</td>
                         </tr>
                         <tr>
-                            <td>？？？？</td>
+                            <td>正切</td>
                             <td>tan(x)</td>
-                            <td>The tangent of x (degrees)</td>
+                            <td>tan(角度)</td>
                         </tr>
                         <tr style="background-color: #f9f9f9;">
-                            <td>？？？？</td>
+                            <td>反正弦</td>
                             <td>asin(x)</td>
-                            <td>The arc-sine of x (degrees)</td>
+                            <td>arc-sine(输出角度)</td>
                         </tr>
                         <tr>
-                            <td>？？？？</td>
+                            <td>反余弦</td>
                             <td>acos(x)</td>
-                            <td>The arc-cosine of x (degrees)</td>
+                            <td>arc-cosine(输出角度)</td>
                         </tr>
                         <tr style="background-color: #f9f9f9;">
-                            <td>？？？？</td>
+                            <td>反正切</td>
                             <td>atan(x)</td>
-                            <td>The arc-tangent of x (degrees)</td>
+                            <td>arc-tangent(输出角度)</td>
                         </tr>
                         <tr>
-                            <td>？？？？</td>
+                            <td>正切角</td>
                             <td>atan2(y, x)</td>
-                            <td>The angle in degrees whose tangent is y/x. In other words the angle (argument) of a vector</td>
+                            <td>正切值为 y/x 的角（以度为单位）。换句话说，向量的角（幅角）</td>
                         </tr>
                         <!-- 可以继续添加其他表达式，保持表格样式一致 -->
-                      </table>
+                    </table>
                     </p>
                 </div>
             </div>
@@ -974,7 +1366,7 @@
 
 
 
-        <div class="unit">
+        <div class="unit" id="ProgramInstances">
             <h1>操作实例</h1>
             <p>收录了一些简单的vizzy实例</p>
             <div class="chapter">
