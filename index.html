@@ -6,76 +6,114 @@
         padding: 0;
         overflow-x: hidden;
     }
-
-    .sidebar {
-        width: 20%;
-        height: 100vh; 
-        position: fixed; 
-        top: 0;
-        left: 0;
-        background-color: #f4f4f4;
-        padding: 20px;
-        border-right: 2px solid #ccc;
-    }
-
-    .content {
-        margin-left: 22%; /* 让正文稍微偏右 */
-        width: 75%;
-        padding: 20px;
-    }
-
-    /* 折叠按钮样式 */
-    .toggle-btn 
+    /*宽屏样式*/
+    @media (min-aspect-ratio: 1/1) 
     {
-        display: none;
-        position: absolute;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 8px 16px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
+       
+        /* 目录占位器 0 */
+        .DirectoryPlaceholders
+        {
+            height: 0vh;
+            width: 30px;
+        }
+
+        .sidebar 
+        {
+            width: 60vw;
+            height: 100%;
+            top: 0%;
+            left: calc(-60vw + 30px);            /* 顶部定位到屏幕外，只露 30px */
+            position: fixed;                    /* 锚定在屏幕固定位置 */
+            border-right: 2px solid #ccc;
+            border-bottom: null;
+            z-index: 1000;
+            overflow-y: auto;                   /* 内容多时可滚动 */
+            transition: height 0.3s ease;
+            background: #f0f0f0;              /* 背景 */
+        }
+        .sidebar.unfold 
+        {
+            left: 0;                            /* 展开状态：完全显示 */
+        }
+
+        .content
+        {
+            width: 100vw - 30px;
+            padding: 20px;
+        }
+
+        .ExpandContents 
+        {
+            position: absolute;                 /* 相对于 .sidebar 定位 */
+            bottom: 5px;                        /* 距离底部 5px */
+            right: 5px;                         /* 距离右边 5px */
+            width: 30px;                        /* 按钮大小 */
+            height: 30px;                       /* 确保在 30px 区域内 */
+            line-height: 30px;                  /* 垂直居中文本 */
+            text-align: center;                 /* 水平居中文本 */
+            background: #007bff;              /* 按钮背景 */
+            color: white;                     /* 文本颜色 */
+            border: none;
+            border-radius: 4px;                 /* 圆角 */
+            cursor: pointer;
+            z-index: 1100;                      /* 高于 .sidebar，确保可点击 */
+            transition: transform 0.3s ease;    /* 动画效果 */
+        }
+
     }
-    /* 长屏样式：当屏幕宽度小于一定值或宽高比小于1时，目录移到顶部 */
-    @media (max-width: 768px) or (max-aspect-ratio: 1/1) {
+    /*长屏样式*/
+    @media (max-aspect-ratio: 1/1) 
+    {
+
+        /*目录占位器*/
+        .DirectoryPlaceholders
+        {
+            height: 30px;                       /* 高度为 30px */
+            width: 100vh;
+        }
+        
         .sidebar 
         {
             width: 100%;
-            height: 60vh; /* 下拉时占60%屏幕高度 */
-            position: fixed;
-            top: 0;
+            height: 60vh;
+            top: calc(-60vh + 30px);            /* 顶部定位到屏幕外，只露 30px */
+            position: fixed;                    /* 锚定在屏幕固定位置 */
             left: 0;
             border-right: none;
             border-bottom: 2px solid #ccc;
             z-index: 1000;
-            overflow-y: auto; /* 内容多时可滚动 */
+            overflow-y: auto;                   /* 内容多时可滚动 */
             transition: height 0.3s ease;
+            background: #f0f0f0;              /* 背景 */
         }
-
-        .sidebar.collapsed 
+        .sidebar.unfold 
         {
-            height: 10vh; /* 收起时占10%屏幕高度 */
+            top: 0;                            /* 展开状态：完全显示 */
         }
 
         .content 
         {
             margin-left: 0;
-            margin-top: 60vh; /* 与展开状态的目录高度一致 */
             width: 100%;
             transition: margin-top 0.3s ease;
         }
 
-        .content.collapsed 
+        .ExpandContents 
         {
-            margin-top: 10vh; /* 与收起状态的目录高度一致 */
-        }
-
-        .toggle-btn 
-        {
-            display: block;
+            position: absolute;                 /* 相对于 .sidebar 定位 */
+            bottom: 5px;                        /* 距离底部 5px */
+            right: 5px;                         /* 距离右边 5px */
+            width: 30px;                        /* 按钮大小 */
+            height: 30px;                       /* 确保在 30px 区域内 */
+            line-height: 30px;                  /* 垂直居中文本 */
+            text-align: center;                 /* 水平居中文本 */
+            background: #007bff;              /* 按钮背景 */
+            color: white;                     /* 文本颜色 */
+            border: none;
+            border-radius: 4px;                 /* 圆角 */
+            cursor: pointer;
+            z-index: 1100;                      /* 高于 .sidebar，确保可点击 */
+            transition: transform 0.3s ease;    /* 动画效果 */
         }
     }
 
@@ -132,20 +170,22 @@
             function toggleSidebar() 
             {
                 const sidebar = document.querySelector('.sidebar');
-                const content = document.querySelector('.content');
-                const toggleBtn = document.querySelector('.toggle-btn');
-    
-                sidebar.classList.toggle('collapsed');
-                content.classList.toggle('collapsed');
-    
-                // 切换按钮文本
-                if (sidebar.classList.contains('collapsed')) 
+
+                // 确保元素存在
+                if (!sidebar) 
                 {
-                    toggleBtn.textContent = '展开';
+                    console.error('Sidebar element not found');
+                    return;
+                }
+
+                // 如果 unfold 类存在，则移除；否则添加
+                if (sidebar.classList.contains('unfold')) 
+                {
+                    sidebar.classList.remove('unfold');
                 } 
                 else 
                 {
-                    toggleBtn.textContent = '收起';
+                    sidebar.classList.add('unfold');
                 }
             }
         </script>
@@ -161,10 +201,11 @@
             <a href="#tag_Multi-Function Display" style="color: #000000; text-decoration: none;">1.10.multi-function display 多功能显示器<br></a>  
         <a href="#TheFunkTree" style="color: #000000; text-decoration: none;">2.FUNK TREE<br></a> 
         <a href="#ProgramInstances" style="color: #000000; text-decoration: none;">3.程序实例</a> 
-
-        <button class="toggle-btn" onclick="toggleSidebar()">收起</button>
+        <!-- 目录折叠按钮绑定在目录右下角 -->
+        <button class="ExpandContents" onclick="toggleSidebar()">>></button>
     </div>
-    <div class="content">
+    <div class="DirectoryPlaceholders"></div>
+    <div class="content">      
         <div class="unit" id ="Translation" >
             <h1>全部翻译及注释</h1>
             <p>在vizzy中可以被执行的程序和数据被称为模块，可以拖动某些，模块使其从上到下排列，系统会根据排列顺序以一定速度依次对模块做出相应的反馈，并进入下一个模块直到结束，以此来完成用户所编辑的vizzy程序</p>
