@@ -60,6 +60,21 @@
             transition: transform 0.3s ease;    /* 动画效果 */
         }
 
+        .unit{
+            margin:  25px 5px 25px 25px;
+        }
+        .chapter{
+            margin:  25px 0px 25px 25px;
+        }
+        .Section{
+            margin:  25px 0px 25px 25px;
+            border-bottom: 3px solid rgb(230, 230, 230);
+        }
+        .item{
+            margin:  25px 0px 25px 25px;
+            margin-top: 0; 
+            margin-bottom: 0;
+        }
     }
     /*长屏样式*/
     @media (max-aspect-ratio: 1/1) 
@@ -116,6 +131,23 @@
             z-index: 1100;                      /* 高于 .sidebar，确保可点击 */
             transition: transform 0.3s ease;    /* 动画效果 */
         }
+
+        .unit{
+            margin:  25px 5px 25px 5px;
+        }
+        .chapter{
+            margin:  25px 0px 25px 25px;
+        }
+        .Section{
+            margin:  25px 0px 25px 25px;
+            border-bottom: 3px solid rgb(230, 230, 230);
+        }
+        .item{
+            margin:  25px 0px 25px 25px;
+            margin-top: 0; 
+            margin-bottom: 0;
+        }
+
     }
 
 
@@ -125,23 +157,6 @@
     {
         /*filter: drop-shadow(3px 3px 2px gray);*/
     }
-
-    .unit{
-        margin:  25px 5px 25px 5px;
-    }
-    .chapter{
-        margin:  25px 0px 25px 25px;
-    }
-    .Section{
-        margin:  25px 0px 25px 25px;
-        border-bottom: 3px solid rgb(230, 230, 230);
-    }
-    .item{
-        margin:  25px 0px 25px 25px;
-        margin-top: 0; 
-        margin-bottom: 0;
-    }
-
     svg {
         margin-top: -0px; 
         margin-bottom: -4px;
@@ -1247,6 +1262,7 @@
                 <h2>运算符和函数</h2>
                 <p>您还可以使用 AG1 到 AG10 访问激活组状态。如果您愿意，可以直接在其中输入一个常量值，例如 0.5、-1 甚至 .3。这将保持不变。此外，您还可以引用 pi、e、true 或 false 来获取它们各自的值，在 Vizzy 中使用 Funk 时，您只需输入变量名称即可引用程序中的变量，如果它们是向量，则需要添加 v:。虽然 Funk 没有任何字符串运算符，但如果您希望它输出字符串，则必须用 "" 括起来。</p>
                 <div class="Section">
+                    <h3>数学方法</h3>
                     <table style="border-collapse: collapse; width: 100%; text-align: left;">
                         <tr style="background-color: #f2f2f2;">
                           <th>函数</th>
@@ -1400,7 +1416,41 @@
                         </tr>
                         <!-- 可以继续添加其他表达式，保持表格样式一致 -->
                     </table>
-                    </p>
+                </div>
+                <div class="Section">
+                    <h3>列表方法</h3>
+                    <table style="border-collapse: collapse; width: 100%; text-align: left;">
+                        <tr style="background-color: #f2f2f2;">
+                            <th>方法</th>
+                            <th>表达式</th>
+                            <th>描述</th>
+                        </tr>
+                        <tr>
+                            <td style="color: #FFFF00;">方法</td>
+                            <td>listNum("list",1)</td>
+                            <td style="color: #FFFF00;">描述</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="color: #FFFF00;">方法</td>
+                            <td>listStr("list",1)</td>
+                            <td style="color: #FFFF00;">描述</td>
+                        </tr>
+                        <tr>
+                            <td style="color: #FFFF00;">方法</td>
+                            <td>listBool("list",1)</td>
+                            <td style="color: #FFFF00;">描述</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="color: #FFFF00;">方法</td>
+                            <td>listVec("list",1)</td>
+                            <td style="color: #FFFF00;">描述</td>
+                        </tr>
+                        <tr>
+                            <td>长度</td>
+                            <td>listLen("list")</td>
+                            <td>列表的个数</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
