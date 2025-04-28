@@ -208,7 +208,8 @@
         <!-- 目录用div包裹每一个<a>懒得做了 -->
         <a href="#Translation" style="color: #000000; text-decoration: none;">1.翻译和注释<br></a> 
             <a href="#tag_ProgramFlow" style="color: #000000; text-decoration: none;">1.1.program flow（程序流程）<br></a> 
-            <a href="#tag_CraftInstructions" style="color: #000000; text-decoration: none;">1.3.Craft Instructions 飞船指令<br></a> 
+            <a href="#tag_CraftInstructions" style="color: #000000; text-decoration: none;">1.3.Craft Instructions 飞船信息<br></a> 
+            <a href="#tag_CraftInformation" style="color: #000000; text-decoration: none;">1.4.Craft Information 飞船指令<br></a>     
             <a href="#tag_Events" style="color: #000000; text-decoration: none;">1.5.events 事件<br></a> 
             <a href="#tag_Variables" style="color: #000000; text-decoration: none;">1.6.variables 变量<br></a> 
             <a href="#tag_lists" style="color: #000000; text-decoration: none;">1.7.lists 列表<br></a> 
@@ -349,7 +350,52 @@
                         <svg width="100%" height="45">
                             <polygon points="0,0 5,0 13,5 21,0 84,0 84,40 21,40 13,45 5,40 0,40" fill="#404040" stroke-width="1" stroke="#303030"/>
                             <text x="10" y="27" fill="white" font-size="18">log</text> 
-                            <rect x="46" y="6" width="28" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/rect x="130" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                            <rect x="46" y="6" width="28" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"> 
+                        </svg>
+                        <p>Log和display大致相同，其不同点是log（）可以将数据记录在View Log里，方便查看某一时刻的数值，当然log（）将不再把结果显示在屏幕上了</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>11：break （打破循环）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45">
+                            <polygon points="0,0 5,0 13,5 21,0 69,0 69,40 21,40 13,45 5,40 0,40" fill="#FFB203" stroke-width="1" stroke="#EFA203"/>
+                            <text x="10" y="27" fill="white" font-size="18">break</text> 
+                        </svg>
+                        <p>这将会跳出这个线程里包涵它的所有循环，直接执行最外层循环以下的模块</p>
+                    </div>
+                </div>
+                <div class="Section">
+                    <h3>12：#（） （便签）</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45">
+                            <polygon points="0,0 5,0 13,5 21,0 201,0 201,40 21,40 13,45 5,40 0,40" fill="#404040" stroke-width="1" stroke="#303030"/>
+                            <text x="10" y="27" fill="#4A7C52" font-size="18">#</text> 
+                            <rect x="28" y="6" width="163" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                                <text x="47" y="27" fill="#4A7C52" font-size="18">Comment Text</text> 
+                        </svg>
+                        <p>这个模块不会运行，你可以把它放在任何位置用于记录某些东西，你可以在里面自由填写，或是笔记，或是批注，你可以把它当成便签一样随意贴放</p>
+                        <p>注:不支持中文，j社懒狗</p>
+                            
+                    </div>
+                </div>
+            </div>
+            <div class="chapter" id ="tag_ProgramFlow">
+                <h2>二：operators （运算符）</h2>
+                <p>这些模块包括了几乎所有的运算符号，可以进行几乎所有的物理学运算，让你可以用vizzy完成玩家几乎不可能完成的任务。在此只简单翻译计算模块，这些模块包括了高中和大学的内容，需要些数学基础。</p>
+                <div class="Section">
+                    <h3>1：四则运算</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45">
+                            <rect x="0" y="3" width="113" height="34" rx="14" ry="14" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
+                                <rect x="10" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
+                                    <text x="21" y="27" fill="white" font-size="18">0</text>
+                                <text x="51" y="27" fill="white" font-size="18">*</text>
+                                <rect x="70" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/> 
+                                    <text x="81" y="27" fill="white" font-size="18">0</text>
+                            <rect x="120" y="3" width="113" height="34" rx="14" ry="14" fill="#3B99D6" stroke-width="1" stroke="#2B89C6"/>
+                                <rect x="130" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/> 
+                                    <text x="321" y="27" fill="white" font-size="18">0</text>
                                     <text x="141" y="27" fill="white" font-size="18">0</text>
                                 <text x="171" y="27" fill="white" font-size="18">-</text>
                                 <rect x="190" y="6" width="33" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/> 
@@ -586,6 +632,17 @@
             <div class="chapter"  id ="tag_CraftInstructions">
                 <h2>三：Craft Instructions 飞船指令</h2>
                 <p>这些模块将会帮助你控制你的作品，以让你的作品更好的在太空中遨游，他们能精确的控制每一个零件，做到比手动更灵活和迅速的操作</p>
+                <div class="Section">
+                    <h3>1：activate stage   激活阶段</h3>
+                    <div class="unit" style="margin-top: 0; margin-bottom: 0;">
+                        <svg width="100%" height="45"></svg>
+                        <p>在游戏内依次激活当前以及往后的阶段，（V:0.9.802）若非主要芯片某个线程出此模块，这个线程会卡死不动</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chapter"  id ="tag_CraftInformation">
+                <h2>四：Craft Information  飞船信息</h2>
+                <p>这些模块将输出模块所在的整体的响应信息，可以使用这些信息进行计算从而得到有用的数据</p>
                 <div class="Section">
                     <h3>1：altitude ［］     海拔高度［］</h3>
                     <div class="unit" style="margin-top: 0; margin-bottom: 0;">
