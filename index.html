@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
+    
 <style>
     body, html {
         margin: 0;
@@ -175,6 +176,7 @@
         margin-bottom: 0px; /* 减小段落底部间距 */
     }
 </style>
+<script src="VizzyForWeb/SR2VIZZY.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -232,24 +234,27 @@
                 <div class="Section">
                     <h3>1：wait（）seconds  （等待（）秒）</h3>
                     <div class="unit" style="margin-top: 0; margin-bottom: 0;">
-                        <svg width="100%" height="45">
-                            <polygon class="VizzyWigets" points="0,0 5,0 13,5 21,0 180,0 180,40 21,40 13,45 5,40 0,40" fill="#404040" stroke-width="1" stroke="#303030"/>
-                            <text x="10" y="27" fill="white" font-size="18">wait</text>
-                            <text x="100" y="27" fill="white" font-size="18">seconds</text>
-                            <rect x="54" y="6" width="40" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/>
-                            <text x="68" y="27" fill="white" font-size="18">1</text>
-                        </svg>                    
+                        <vizzy-div>
+                            <vizzy-instruction>
+                                <vizzy-text>wait</vizzy-text>
+                                <vizzy-elliptical>
+                                    <vizzy-text>0</vizzy-text>
+                                </vizzy-elliptical>
+                                <vizzy-text>seconds</vizzy-text>
+                            </vizzy-instruction>
+                        </vizzy-div>               
                         <p>等待一秒并非现实世界的一秒，这存在一点误差，受是设备刷新帧率影响而产生的，并不大但不可忽视，在时空扭矩中会发生极大错误</p>
                     </div>
                 </div>
                 <div class="Section">
                     <h3>2：wait until〈〉 （等待直到〈〉）</h3>
                     <div class="unit" style="margin-top: 0; margin-bottom: 0;">
-                        <svg width="100%" height="45">
-                            <polygon class="VizzyWigets" points="0,0 5,0 13,5 21,0 140,0 140,40 21,40 13,45 5,40 0,40" fill="#404040" stroke-width="1" stroke="#303030"/>
-                            <text x="10" y="27" fill="white" font-size="18">wait until</text>
-                            <polygon points="110,6 114,6 126,18 126,22 114,34 110,34 98,22 98,18" fill="#303030" stroke-width="2" stroke="#202020"/>
-                        </svg>      
+                        <vizzy-div>
+                            <vizzy-instruction>
+                                <vizzy-text>wait until</vizzy-text>
+                                <vizzy-octagon></vizzy-octagon>
+                            </vizzy-instruction>
+                        </vizzy-div>        
                         <p>等待直到菱形方框内执行或达成则开始运下一行程序例：wait until 〈AGL≦5000〉意思就是等待直到距地面高度小于5000m运行下一步注：如果未达成wait until〈〉里面的条件后面的程序是无法执行的，即使后面的判定是达成的</p>
                     </div>
                 </div>
@@ -375,8 +380,7 @@
                                 <text x="47" y="27" fill="#4A7C52" font-size="18">Comment Text</text> 
                         </svg>
                         <p>这个模块不会运行，你可以把它放在任何位置用于记录某些东西，你可以在里面自由填写，或是笔记，或是批注，你可以把它当成便签一样随意贴放</p>
-                        <p>注:不支持中文，j社懒狗</p>
-                            
+                        <p>注:不支持中文，j社懒狗</p>                          
                     </div>
                 </div>
             </div>
@@ -980,6 +984,18 @@
             <div class="chapter">
                 <h2>语法</h2>
                 <div class="Section">
+                    <h3>变量调用</h3>
+                    <svg width="100%" height="85">
+                        <rect x="0" y="3" width="220" height="34" rx="14" ry="14" fill="#404040" stroke-width="1" stroke="#303030"/>
+                            <text x="10" y="27" fill="#00FF00" font-size="18">F</text>
+                            <text x="20" y="27" fill="#FF3EFF" font-size="18">U</text>
+                            <text x="32" y="27" fill="#FFFF00" font-size="18">N</text>
+                            <text x="44" y="27" fill="#FF0000" font-size="18">K</text>
+                            <rect x="60" y="6" width="150" height="28" rx="14" ry="14" fill="#303030" stroke-width="2" stroke="#202020"/> 
+                                <text x="76" y="27" fill="#FFFFFF" font-size="18">Mun1 + Num2</text>
+                    </svg>
+                </div>
+                <div class="Section">
 
 
                 </div>
@@ -1522,10 +1538,416 @@
                 <h2>1：让初始火箭悬停到AGL 10米的高度</h2>
                 <p>悬停到发射场上空10m的高度，稳定高度一段时间</p>
                 <div class="Section">
-                    <h3>1：问题分析</h3>
+                    <h3</h3>
                     <p>
                         
                     </p>
+                </div>
+            </div>
+            <div class="chapter">
+                <h2>2：火箭降落</h2>
+                <p></p>
+                <div class="Section">
+                    <vizzy-div>
+                        <vizzy-instruction>
+                            <vizzy-text>/*设置安全加速为最大加速度的0.75倍速*/</vizzy-text>
+                        </vizzy-instruction>
+                        <vizzy-instruction>
+                            <vizzy-text>set varbles</vizzy-text>
+                            <vizzy-varbles>
+                                 <vizzy-text>safeAcceleration</vizzy-text>
+                            </vizzy-varbles>
+                            <vizzy-text>to</vizzy-text>
+                            <vizzy-operators>
+                                <vizzy-operators>
+                                    <vizzy-operators>
+                                        <vizzy-information>
+                                            <vizzy-text>porformance</vizzy-text>
+                                            <vizzy-method type="mun">
+                                                <vizzy-text>Max Engine Thrust</vizzy-text>
+                                            </vizzy-method>
+                                        </vizzy-information>
+                                        <vizzy-text>/</vizzy-text>
+                                        <vizzy-information>
+                                            <vizzy-text>porformance</vizzy-text>
+                                            <vizzy-method type="mun">
+                                                <vizzy-text>Mass</vizzy-text>
+                                            </vizzy-method>
+                                        </vizzy-information>
+                                    </vizzy-operators>
+                                    <vizzy-text>*</vizzy-text>
+                                    <vizzy-elliptical>
+                                        <vizzy-text>0.75</vizzy-text>
+                                    </vizzy-elliptical>
+                                </vizzy-operators>
+                                <vizzy-text>-</vizzy-text>
+                                <vizzy-operators>
+                                    <vizzy-information>
+                                        <vizzy-text>velocity</vizzy-text>
+                                        <vizzy-method type="vec">
+                                            <vizzy-text>Gravity</vizzy-text>
+                                        </vizzy-method>
+                                    </vizzy-information>
+                                    <vizzy-method type="mun">
+                                        <vizzy-text>lenght</vizzy-text>
+                                    </vizzy-method>
+                                </vizzy-operators>
+                            </vizzy-operators>
+                        </vizzy-instruction>
+                        <vizzy-instruction>
+                            <vizzy-text>wait until</vizzy-text>
+                            <vizzy-discriminant>
+                                <vizzy-information>
+                                    <vizzy-text>porformance</vizzy-text>
+                                    <vizzy-method type="mun">
+                                        <vizzy-text>Mass</vizzy-text>
+                                    </vizzy-method>
+                                </vizzy-information>
+                                <vizzy-text><</vizzy-text>
+                                <vizzy-elliptical>
+                                    <vizzy-text>-4</vizzy-text>
+                                </vizzy-elliptical>
+                            </vizzy-discriminants>
+                        </vizzy-instruction>
+                        <vizzy-loopheader>
+                            <vizzy-text>while</vizzy-text>
+                            <vizzy-discriminant>
+                                <vizzy-information>
+                                    <vizzy-text>porformance</vizzy-text>
+                                    <vizzy-method type="mun">
+                                        <vizzy-text>Mass</vizzy-text>
+                                    </vizzy-method>
+                                </vizzy-information>
+                                <vizzy-text><</vizzy-text>
+                                <vizzy-elliptical>
+                                    <vizzy-text>-3.5</vizzy-text>
+                                </vizzy-elliptical>
+                            </vizzy-discriminants>
+                        </vizzy-loopheader>
+                        <vizzy-loopbody>
+                            <vizzy-instruction>
+                                <vizzy-text>/*消除侧滑*/</vizzy-text>
+                            </vizzy-instruction>
+                            <vizzy-instruction>
+                                <vizzy-text>lock heading on vector</vizzy-text>
+                                <vizzy-operators>
+                                    <vizzy-operators>
+                                        <vizzy-operators>
+                                            <vizzy-information>
+                                                <vizzy-text>nav</vizzy-text>
+                                                <vizzy-method type="vec">
+                                                    <vizzy-text>Position</vizzy-text>
+                                                </vizzy-method>
+                                            </vizzy-information>
+                                            <vizzy-method type="vec">
+                                                <vizzy-text>norm</vizzy-text>
+                                            </vizzy-method>
+                                        </vizzy-operators>
+                                        <vizzy-text>*</vizzy-text>
+                                        <vizzy-elliptical>
+                                            <vizzy-text>40</vizzy-text>
+                                        </vizzy-elliptical>
+                                    </vizzy-operators>
+                                    <vizzy-text>-</vizzy-text>
+                                    <vizzy-elliptical>
+                                        <vizzy-text>error</vizzy-text>
+                                    </vizzy-elliptical>
+                                </vizzy-operators>
+                            </vizzy-instruction>
+                            <vizzy-instruction>
+                                <vizzy-text>/*计算目标下降速度*/</vizzy-text>
+                            </vizzy-instruction>
+                            <vizzy-instruction>
+                                <vizzy-text>set varbles</vizzy-text>
+                                <vizzy-varbles>
+                                     <vizzy-text>TargetV</vizzy-text>
+                                </vizzy-varbles>
+                                <vizzy-text>to</vizzy-text>
+                                <vizzy-operators>
+                                    <vizzy-elliptical>
+                                        <vizzy-text>-1</vizzy-text>
+                                    </vizzy-elliptical>
+                                    <vizzy-text>*</vizzy-text>
+                                    <vizzy-operators>
+                                        <vizzy-elliptical>
+                                            <vizzy-text>0.5</vizzy-text>
+                                        </vizzy-elliptical>
+                                        <vizzy-text>^</vizzy-text>
+                                        <vizzy-operators>
+                                            <vizzy-elliptical>
+                                                <vizzy-text>2</vizzy-text>
+                                            </vizzy-elliptical>
+                                            <vizzy-text>*</vizzy-text>
+                                            <vizzy-operators>
+                                                <vizzy-varbles>
+                                                    <vizzy-text>safeAcceleration</vizzy-text>
+                                               </vizzy-varbles>
+                                                <vizzy-text>*</vizzy-text>
+                                                <vizzy-operators>
+                                                    <vizzy-information>
+                                                        <vizzy-text>altitude</vizzy-text>
+                                                        <vizzy-method type="mun">
+                                                            <vizzy-text>AGL</vizzy-text>
+                                                        </vizzy-method>
+                                                    </vizzy-information>
+                                                    <vizzy-text>-</vizzy-text>
+                                                    <vizzy-elliptical>
+                                                        <vizzy-text>0</vizzy-text>
+                                                    </vizzy-elliptical>
+                                                </vizzy-operators>
+                                            </vizzy-operators>
+                                        </vizzy-operators>
+                                    </vizzy-operators>
+                                </vizzy-operators>
+                            </vizzy-instruction>
+                            <vizzy-instruction>
+                                <vizzy-text>set varbles</vizzy-text>
+                                <vizzy-varbles>
+                                     <vizzy-text>V_Integral</vizzy-text>
+                                </vizzy-varbles>
+                                <vizzy-text>to</vizzy-text>
+                                <vizzy-operators>
+                                    <vizzy-operators>
+                                        <vizzy-operators>
+                                            <vizzy-information>
+                                                <vizzy-text>velocity</vizzy-text>
+                                                <vizzy-method type="vec">
+                                                    <vizzy-text>Gravity</vizzy-text>
+                                                </vizzy-method>
+                                            </vizzy-information>
+                                            <vizzy-method type="mun">
+                                                <vizzy-text>lenght</vizzy-text>
+                                            </vizzy-method>
+                                        </vizzy-operators>
+                                        <vizzy-text>+</vizzy-text>
+                                        <vizzy-varbles>
+                                            <vizzy-text>safeAcceleration</vizzy-text>
+                                       </vizzy-varbles>
+                                    </vizzy-operators>
+                                    <vizzy-text>*</vizzy-text>
+                                    <vizzy-information>
+                                        <vizzy-text>porformance</vizzy-text>
+                                        <vizzy-method type="mun">
+                                            <vizzy-text>Mass</vizzy-text>
+                                        </vizzy-method>
+                                    </vizzy-information>
+                                </vizzy-operators>
+                            </vizzy-instruction> 
+                            <vizzy-instruction>
+                                <vizzy-text>set varbles</vizzy-text>
+                                <vizzy-varbles>
+                                     <vizzy-text>V_proportional</vizzy-text>
+                                </vizzy-varbles>
+                                <vizzy-text>to</vizzy-text>
+                                <vizzy-operators>
+                                    <vizzy-operators>
+                                        <vizzy-varbles>
+                                            <vizzy-text>TargetV</vizzy-text>
+                                       </vizzy-varbles>
+                                        <vizzy-text>-</vizzy-text>
+                                        <vizzy-information>
+                                            <vizzy-text>velocity</vizzy-text>
+                                            <vizzy-method type="vec">
+                                                <vizzy-text>Vertical</vizzy-text>
+                                            </vizzy-method>
+                                        </vizzy-information>
+                                    </vizzy-operators>
+                                    <vizzy-text>*</vizzy-text>
+                                    <vizzy-operators>
+                                        <vizzy-elliptical>
+                                            <vizzy-text>1</vizzy-text>
+                                        </vizzy-elliptical>
+                                        <vizzy-text>*</vizzy-text>
+                                        <vizzy-information>
+                                            <vizzy-text>porformance</vizzy-text>
+                                            <vizzy-method type="mun">
+                                                <vizzy-text>Mass</vizzy-text>
+                                            </vizzy-method>
+                                        </vizzy-information>
+                                    </vizzy-operators>
+                                </vizzy-operators>
+                            </vizzy-instruction>
+                            <vizzy-instruction>
+                                <vizzy-text>set</vizzy-text>
+                                <vizzy-method type="mun">
+                                    <vizzy-text>Throttle</vizzy-text>
+                                </vizzy-method>
+                                <vizzy-text>to</vizzy-text>
+                                <vizzy-operators>
+                                    <vizzy-operators>
+                                        <vizzy-varbles>
+                                            <vizzy-text>V_Integral</vizzy-text>
+                                        </vizzy-varbles>
+                                        <vizzy-text>+</vizzy-text>
+                                        <vizzy-varbles>
+                                            <vizzy-text>V_proportional</vizzy-text>
+                                        </vizzy-varbles>
+                                    </vizzy-operators>
+                                    <vizzy-text>/</vizzy-text>
+                                    <vizzy-information>
+                                        <vizzy-text>porformance</vizzy-text>
+                                        <vizzy-method type="mun">
+                                            <vizzy-text>Max Engine Thrust</vizzy-text>
+                                        </vizzy-method>
+                                    </vizzy-information>
+                                </vizzy-operators>
+                            </vizzy-instruction>
+                        </vizzy-loopbody>
+                        <vizzy-instruction>
+                            <vizzy-text>/*缓降环节*/</vizzy-text>
+                        </vizzy-instruction>
+                        <vizzy-loopheader>
+                            <vizzy-text>while</vizzy-text>
+                            <vizzy-discriminant>
+                                <vizzy-information>
+                                    <vizzy-text>misc</vizzy-text>
+                                    <vizzy-method type="mun">
+                                        <vizzy-text>Grounded</vizzy-text>
+                                    </vizzy-method>
+                                </vizzy-information>
+                                <vizzy-text>=</vizzy-text>
+                                <vizzy-elliptical>
+                                    <vizzy-text>0</vizzy-text>
+                                </vizzy-elliptical>
+                            </vizzy-discriminants>
+                        </vizzy-loopheader>
+                        <vizzy-loopbody>
+                            <vizzy-instruction>
+                                <vizzy-text>/*消除侧滑*/</vizzy-text>
+                            </vizzy-instruction>
+                            <vizzy-instruction>
+                                <vizzy-text>lock heading on vector</vizzy-text>
+                                <vizzy-operators>
+                                    <vizzy-operators>
+                                        <vizzy-operators>
+                                            <vizzy-information>
+                                                <vizzy-text>nav</vizzy-text>
+                                                <vizzy-method type="vec">
+                                                    <vizzy-text>Position</vizzy-text>
+                                                </vizzy-method>
+                                            </vizzy-information>
+                                            <vizzy-method type="vec">
+                                                <vizzy-text>norm</vizzy-text>
+                                            </vizzy-method>
+                                        </vizzy-operators>
+                                        <vizzy-text>*</vizzy-text>
+                                        <vizzy-elliptical>
+                                            <vizzy-text>10</vizzy-text>
+                                        </vizzy-elliptical>
+                                    </vizzy-operators>
+                                    <vizzy-text>-</vizzy-text>
+                                    <vizzy-elliptical>
+                                        <vizzy-text>error</vizzy-text>
+                                    </vizzy-elliptical>
+                                </vizzy-operators>
+                            </vizzy-instruction>
+                            <vizzy-instruction>
+                                <vizzy-text>/*下降速度被设为-0.5*/</vizzy-text>
+                            </vizzy-instruction>
+                            <vizzy-instruction>
+                                <vizzy-text>set varbles</vizzy-text>
+                                <vizzy-varbles>
+                                     <vizzy-text>V_Integral</vizzy-text>
+                                </vizzy-varbles>
+                                <vizzy-text>to</vizzy-text>
+                                <vizzy-operators>
+                                    <vizzy-operators>
+                                        <vizzy-operators>
+                                            <vizzy-information>
+                                                <vizzy-text>velocity</vizzy-text>
+                                                <vizzy-method type="vec">
+                                                    <vizzy-text>Gravity</vizzy-text>
+                                                </vizzy-method>
+                                            </vizzy-information>
+                                            <vizzy-method type="mun">
+                                                <vizzy-text>lenght</vizzy-text>
+                                            </vizzy-method>
+                                        </vizzy-operators>
+                                        <vizzy-text>+</vizzy-text>
+                                        <vizzy-varbles>
+                                            <vizzy-text>safeAcceleration</vizzy-text>
+                                       </vizzy-varbles>
+                                    </vizzy-operators>
+                                    <vizzy-text>*</vizzy-text>
+                                    <vizzy-information>
+                                        <vizzy-text>porformance</vizzy-text>
+                                        <vizzy-method type="mun">
+                                            <vizzy-text>Mass</vizzy-text>
+                                        </vizzy-method>
+                                    </vizzy-information>
+                                </vizzy-operators>
+                            </vizzy-instruction> 
+                            <vizzy-instruction>
+                                <vizzy-text>set varbles</vizzy-text>
+                                <vizzy-varbles>
+                                     <vizzy-text>V_proportional</vizzy-text>
+                                </vizzy-varbles>
+                                <vizzy-text>to</vizzy-text>
+                                <vizzy-operators>
+                                    <vizzy-operators>
+                                        <vizzy-elliptical>
+                                            <vizzy-text>-0.5</vizzy-text>
+                                        </vizzy-elliptical>
+                                        <vizzy-text>-</vizzy-text>
+                                        <vizzy-information>
+                                            <vizzy-text>velocity</vizzy-text>
+                                            <vizzy-method type="vec">
+                                                <vizzy-text>Vertical</vizzy-text>
+                                            </vizzy-method>
+                                        </vizzy-information>
+                                    </vizzy-operators>
+                                    <vizzy-text>*</vizzy-text>
+                                    <vizzy-operators>
+                                        <vizzy-elliptical>
+                                            <vizzy-text>1</vizzy-text>
+                                        </vizzy-elliptical>
+                                        <vizzy-text>*</vizzy-text>
+                                        <vizzy-information>
+                                            <vizzy-text>porformance</vizzy-text>
+                                            <vizzy-method type="mun">
+                                                <vizzy-text>Mass</vizzy-text>
+                                            </vizzy-method>
+                                        </vizzy-information>
+                                    </vizzy-operators>
+                                </vizzy-operators>
+                            </vizzy-instruction>
+                            <vizzy-instruction>
+                                <vizzy-text>set</vizzy-text>
+                                <vizzy-method type="mun">
+                                    <vizzy-text>Throttle</vizzy-text>
+                                </vizzy-method>
+                                <vizzy-text>to</vizzy-text>
+                                <vizzy-operators>
+                                    <vizzy-operators>
+                                        <vizzy-varbles>
+                                            <vizzy-text>V_Integral</vizzy-text>
+                                        </vizzy-varbles>
+                                        <vizzy-text>+</vizzy-text>
+                                        <vizzy-varbles>
+                                            <vizzy-text>V_proportional</vizzy-text>
+                                        </vizzy-varbles>
+                                    </vizzy-operators>
+                                    <vizzy-text>/</vizzy-text>
+                                    <vizzy-information>
+                                        <vizzy-text>porformance</vizzy-text>
+                                        <vizzy-method type="mun">
+                                            <vizzy-text>Max Engine Thrust</vizzy-text>
+                                        </vizzy-method>
+                                    </vizzy-information>
+                                </vizzy-operators>
+                            </vizzy-instruction>
+                        </vizzy-loopbody>
+                        <vizzy-instruction>
+                            <vizzy-text>set</vizzy-text>
+                            <vizzy-method type="mun">
+                                <vizzy-text>Throttle</vizzy-text>
+                            </vizzy-method>
+                            <vizzy-text>to</vizzy-text>
+                            <vizzy-elliptical>
+                                <vizzy-text>0</vizzy-text>
+                            </vizzy-elliptical>
+                        </vizzy-instruction>
+                    </vizzy-div>
                 </div>
             </div>
         </div>
